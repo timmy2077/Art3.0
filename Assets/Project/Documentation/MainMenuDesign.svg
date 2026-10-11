@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs>
+ <linearGradient id="paper" x2="1" y2="1"><stop stop-color="#f5edd9"/><stop offset=".55" stop-color="#e9dbb7"/><stop offset="1" stop-color="#d4bc8b"/></linearGradient>
+ <radialGradient id="light"><stop stop-color="#fff9e7" stop-opacity=".95"/><stop offset="1" stop-color="#fff9e7" stop-opacity="0"/></radialGradient>
+ <linearGradient id="red" x2="0" y2="1"><stop stop-color="#aa4635"/><stop offset="1" stop-color="#783025"/></linearGradient>
+ <filter id="shadow"><feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="#614529" flood-opacity=".17"/></filter>
+ <pattern id="grain" width="83" height="69" patternUnits="userSpaceOnUse"><path d="M3 8h17M45 29h9M18 51h23M69 13h3" stroke="#98784f" opacity=".09"/><circle cx="58" cy="55" r="1" fill="#927448" opacity=".16"/></pattern>
+ <pattern id="brick" width="145" height="70" patternUnits="userSpaceOnUse"><path d="M0 0H145V70H0ZM72 0V35M0 35H145M25 35V70" fill="none" stroke="#9c8054" stroke-width="1" opacity=".22"/></pattern>
+ <g id="hero" stroke="#342f27" stroke-linecap="round" stroke-linejoin="round">
+  <ellipse cy="132" rx="47" ry="9" fill="#63523c" opacity=".13" stroke="none"/>
+  <path d="M-22 52l-6 75h20l12-65 13 65h21L27 52" fill="#3c4440" stroke-width="3"/>
+  <path d="M-15-31Q-43-24-50 34l21 6-1 31q30 12 61-2L29 39l22-6Q41-22 16-31Z" fill="#ede5ce" stroke-width="3"/>
+  <path d="M-18-28L4 15 21-27M4 15l-13 43" fill="none" stroke-width="3"/>
+  <path d="M-31 52l62-3 1 12-62 2Z" fill="#9a4837" stroke-width="2"/>
+  <path d="M-34 37l-6 13q-6 8-10 0l1-16M36 35l5 14q7 7 10-2l-2-14" fill="#d5b68d" stroke-width="2"/>
+  <ellipse cy="-55" rx="24" ry="30" fill="#d9bd98" stroke-width="2.5"/>
+  <path d="M-24-60q-4-33 27-32 29 3 20 35l-6-14q-21 5-35-2Z" fill="#363631" stroke-width="2"/>
+  <path d="M-10-93l1-12q14-8 24 2l-1 15" fill="#343630" stroke-width="2"/>
+  <path d="M-13-57h5M8-57h5M-5-41q5 3 10 0" fill="none" stroke-width="2"/>
+  <path d="M-29 4l-6 24M31 3l6 20" fill="none" stroke-width="2" opacity=".6"/>
+ </g>
+ <g id="farmer" stroke="#504735" stroke-width="2.5" stroke-linejoin="round">
+  <ellipse cy="124" rx="39" ry="8" fill="#63523c" opacity=".13" stroke="none"/>
+  <path d="M-20 53l-7 65h19l12-55 14 55h18l-12-65" fill="#5b5544"/>
+  <path d="M-18-25q-29 3-33 60l22 6-3 23h62l-3-27 20-3Q42-21 18-25Z" fill="#9b9776"/>
+  <path d="M-15-24L5 11l14-33M-29 48h57" fill="none"/>
+  <ellipse cy="-47" rx="22" ry="27" fill="#d4b58b"/>
+  <path d="M-45-60Q0-105 44-60Z" fill="#b99d65"/><path d="M-17-49h5M9-49h5M-6-34h13" fill="none"/>
+  <path d="M50-38l-3 149M47-37l36-8" fill="none" stroke-width="6"/>
+ </g>
+ <g id="scholar" stroke="#494d46" stroke-width="2.5" stroke-linejoin="round">
+  <ellipse cy="130" rx="42" ry="8" fill="#63523c" opacity=".13" stroke="none"/>
+  <path d="M-19 81l-6 46h21l5-40 10 40h20l-11-49" fill="#454d48"/>
+  <path d="M-17-30Q-46-21-49 30l21 7-8 60q39 13 69-3l-8-55 26-12Q43-20 17-30Z" fill="#708a83"/>
+  <path d="M-15-28L3 11l15-39M3 11l-13 68M-31 50h58" fill="none" stroke="#e8e0c9"/>
+  <ellipse cy="-56" rx="22" ry="27" fill="#d4b68f"/><path d="M-25-68l4-28 41 1 7 29Z" fill="#414a45"/>
+  <path d="M-12-58h5M7-58h5M-5-42h12" fill="none"/>
+  <path d="M-21 8l37 12-8 28-37-11Z" fill="#dcc797"/><path d="M-16 16l25 8M-19 24l25 8" stroke="#8a7352"/>
+ </g>
+ <g id="unknown" fill="#8d846b"><ellipse cy="-53" rx="22" ry="28"/><path d="M-23-69q2-22 22-24 24 0 27 24Z"/><path d="M-18-23q-32 7-35 56l22 10-8 73h75l-8-73 24-10q-9-52-35-56Z"/></g>
+</defs>
+<rect width="1600" height="900" fill="url(#paper)"/><rect width="1600" height="900" fill="url(#grain)"/>
+<rect x="24" y="24" width="1552" height="852" rx="4" fill="none" stroke="#7e6946" opacity=".5"/>
+<rect x="32" y="32" width="1536" height="836" fill="none" stroke="#9d8256" opacity=".3"/>
+<path d="M50 590Q320 355 500 455T890 395T1260 390T1550 500V716H50Z" fill="#93866a" opacity=".09"/>
+<path d="M50 645Q270 482 470 545T900 472T1310 515T1550 554V719H50Z" fill="#6d7662" opacity=".08"/>
+<ellipse cx="810" cy="488" rx="510" ry="332" fill="url(#light)"/>
+<g font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#423b2c">
+ <g filter="url(#shadow)"><rect x="62" y="61" width="274" height="91" rx="5" fill="#faf3df" stroke="#ae9670"/><circle cx="108" cy="106" r="31" fill="#ddd0af"/><use href="#hero" transform="translate(108 111) scale(.25)"/>
+ <text x="155" y="91" font-size="12" letter-spacing="3" fill="#8c7552">入画之人</text><text x="153" y="124" font-size="25">陈墨</text><text x="308" y="112" font-size="18" fill="#9b8060">✎</text></g>
+ <g><rect x="1313" y="73" width="222" height="60" rx="4" fill="#f5edd8" stroke="#ad9267"/><circle cx="1350" cy="103" r="12" fill="none" stroke="#69563c" stroke-width="2"/><circle cx="1350" cy="103" r="4" fill="none" stroke="#69563c" stroke-width="2"/><text x="1378" y="111" font-size="22">旅途设定</text></g>
+ <text x="800" y="167" text-anchor="middle" font-family="KaiTi, STKaiti, serif" font-size="64" letter-spacing="13" fill="#423a2d">砖上人间</text>
+ <text x="800" y="203" text-anchor="middle" font-size="14" letter-spacing="7" fill="#8a7250">一砖一故事 · 入画遇故人</text>
+ <path d="M673 220h100M827 220h100" stroke="#ae9270"/><rect x="792" y="212" width="16" height="16" transform="rotate(45 800 220)" fill="#a24a37"/>
+ <ellipse cx="800" cy="638" rx="380" ry="70" fill="url(#brick)" opacity=".8"/>
+ <ellipse cx="800" cy="638" rx="338" ry="52" fill="none" stroke="#8e784d" stroke-dasharray="3 11" opacity=".35"/>
+ <g opacity=".2"><use href="#unknown" transform="translate(409 510) scale(.95)"/><use href="#unknown" transform="translate(1200 508) scale(.95)"/></g>
+ <g fill="#968363"><text x="410" y="655" text-anchor="middle" font-size="16">尚待相逢</text><text x="1200" y="655" text-anchor="middle" font-size="16">尚待相逢</text></g>
+ <use href="#farmer" transform="translate(600 494) scale(1.13)"/>
+ <use href="#scholar" transform="translate(1020 481) scale(1.17)"/>
+ <use href="#hero" transform="translate(806 437) scale(1.48)"/>
+ <g><rect x="544" y="647" width="112" height="37" rx="18" fill="#ede2c7" stroke="#b9a17b"/><text x="600" y="672" text-anchor="middle" font-size="17">耕田老者</text><rect x="964" y="647" width="112" height="37" rx="18" fill="#ede2c7" stroke="#b9a17b"/><text x="1020" y="672" text-anchor="middle" font-size="17">传书驿使</text></g>
+ <rect x="760" y="647" width="92" height="37" rx="3" fill="#984431"/><text x="806" y="673" text-anchor="middle" font-size="18" fill="#fff2d7">陈墨</text>
+ <g filter="url(#shadow)"><rect x="632" y="719" width="336" height="75" rx="5" fill="url(#red)"/><rect x="640" y="727" width="320" height="59" rx="2" fill="none" stroke="#d3a477"/><text x="800" y="768" text-anchor="middle" font-size="30" letter-spacing="7" fill="#fff0ce">入画闯关</text></g>
+ <g><rect x="300" y="728" width="224" height="58" rx="4" fill="#f4ead1" stroke="#ae9168"/><path d="M326 747h23v22h-23ZM333 747v22M326 758h23" fill="none" stroke="#775f3d" stroke-width="1.5"/><text x="370" y="766" font-size="23">画像砖录</text></g>
+ <g><rect x="1076" y="728" width="224" height="58" rx="4" fill="#f4ead1" stroke="#ae9168"/><path d="M1100 747h26v24h-26ZM1113 747v24" fill="none" stroke="#775f3d" stroke-width="1.5"/><text x="1147" y="766" font-size="23">人物志</text></g>
+ <text x="800" y="828" text-anchor="middle" font-size="14" letter-spacing="3" fill="#8c7554">画中相逢的故人，皆在此处与你同行</text>
+ <text x="65" y="848" font-size="12" fill="#8e7755">主界面概念设计 · 示意角色</text><text x="1533" y="848" text-anchor="end" font-size="12" fill="#8e7755">画像砖 · 纸本 · 墨色 · 朱印</text>
+</g>
+</svg>

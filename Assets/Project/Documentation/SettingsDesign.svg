@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="740" viewBox="0 0 1000 740">
+<defs><linearGradient id="p" x2="1" y2="1"><stop stop-color="#f5ecd6"/><stop offset="1" stop-color="#dfcca2"/></linearGradient><filter id="s"><feDropShadow dx="0" dy="10" stdDeviation="16" flood-opacity=".2"/></filter></defs>
+<rect width="1000" height="740" fill="#504b3e"/>
+<g font-family="Microsoft YaHei, sans-serif" fill="#4b402e">
+<g filter="url(#s)"><rect x="230" y="56" width="540" height="628" rx="7" fill="url(#p)"/><rect x="242" y="68" width="516" height="604" rx="3" fill="none" stroke="#b39768"/></g>
+<text x="500" y="125" text-anchor="middle" font-family="KaiTi, serif" font-size="38" letter-spacing="5">旅途设定</text><text x="724" y="96" font-size="25" fill="#8b704e">×</text><path d="M282 153h436" stroke="#b89c72"/>
+<text x="291" y="208" font-size="23">乐声</text><text x="702" y="208" text-anchor="end" font-size="16" fill="#8c7350">音乐音量</text><rect x="291" y="237" width="416" height="5" rx="2" fill="#c8b48d"/><rect x="291" y="237" width="300" height="5" rx="2" fill="#8e4635"/><circle cx="591" cy="239" r="10" fill="#964b37"/>
+<text x="291" y="309" font-size="23">声响</text><text x="702" y="309" text-anchor="end" font-size="16" fill="#8c7350">音效音量</text><rect x="291" y="338" width="416" height="5" rx="2" fill="#c8b48d"/><rect x="291" y="338" width="340" height="5" rx="2" fill="#8e4635"/><circle cx="631" cy="340" r="10" fill="#964b37"/>
+<path d="M282 389h436" stroke="#b89c72" opacity=".6"/>
+<rect x="291" y="424" width="416" height="58" rx="4" fill="#f3e7cb" stroke="#ac8e61"/><text x="500" y="462" text-anchor="middle" font-size="23">归画继续</text>
+<rect x="291" y="505" width="416" height="58" rx="4" fill="#8f4030"/><text x="500" y="543" text-anchor="middle" font-size="23" fill="#fff1d6">暂别画境</text><text x="500" y="588" text-anchor="middle" font-size="14" fill="#8e7250">退出游戏</text>
+<text x="500" y="635" text-anchor="middle" font-size="13" fill="#967d58">设置窗口概念设计</text>
+</g></svg>
