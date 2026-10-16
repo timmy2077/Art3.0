@@ -78,6 +78,9 @@ public class DialogueManager : MonoBehaviour
 
     void Start()
     {
+        FarmingPuzzle farming = GetComponentInParent<FarmingPuzzle>();
+        if (farming == null) farming = FindObjectOfType<FarmingPuzzle>();
+        if (farming != null) farming.ConfigureDialogueUI(this);
         TaskDataStorage storage = taskInfoPanel != null ? taskInfoPanel.taskStorage : null;
         if (PlayerTaskManager.Instance == null || storage == null) return;
 
@@ -115,9 +118,13 @@ public class DialogueManager : MonoBehaviour
         if (state != FlowState.None) return; // 已有对话进行中
 
         currentNPC = npc;
+        FarmingPuzzle farming = npc.GetComponentInParent<FarmingPuzzle>();
+        if (farming != null && npc.transform == farming.farmer) farming.OnFarmerDialogueStarted();
         DialogueData data = npc.dialogueData;
 
         dialogueUI.ShowPanel();
+        // Activate the initially disabled canvas before changing its serialized references.
+        if (farming != null) farming.ConfigureDialogueUI(this);
         dialogueUI.SetNPCName(data.npcName);
 
         OnDialogueStart?.Invoke();

@@ -27,6 +27,18 @@ public class PlayerTaskManager : MonoBehaviour
     public TaskDataStorage ActiveTaskStorage => activeTaskStorage;
     public QuestState CurrentState => currentState;
 
+    public bool PersistenceEnabled => enablePersistence &&
+        (DataSystem.instance == null || DataSystem.instance.enablePersistence);
+
+    private void OnEnable() { SaveManager.ResetOccurred += OnSaveReset; }
+    private void OnDisable() { SaveManager.ResetOccurred -= OnSaveReset; }
+    private void OnSaveReset()
+    {
+        completedTaskIds.Clear();
+        currentState = QuestState.NotAccepted;
+        OnTaskStateChanged?.Invoke(-1);
+    }
+
     private void Awake()
     {
         if (Instance == null)
@@ -119,11 +131,13 @@ public class PlayerTaskManager : MonoBehaviour
 
     public bool IsQuestAccepted(TaskDataStorage storage)
     {
+        if (storage == activeTaskStorage) return currentState != QuestState.NotAccepted;
         return ReadSavedState(storage) != QuestState.NotAccepted;
     }
 
     public bool IsQuestCompleted(TaskDataStorage storage)
     {
+        if (storage == activeTaskStorage) return currentState == QuestState.Completed;
         return ReadSavedState(storage) == QuestState.Completed;
     }
 
@@ -144,10 +158,10 @@ public class PlayerTaskManager : MonoBehaviour
         completedTaskIds.Clear();
         currentState = ReadSavedState(activeTaskStorage);
 
-        if (!enablePersistence)
+        if (!PersistenceEnabled)
             return;
 
-        string savedIds = PlayerPrefs.GetString(CompletedIdsKey(activeTaskStorage), "");
+        string savedIds = SaveManager.Instance.GetString(CompletedIdsKey(activeTaskStorage), "");
         foreach (string value in savedIds.Split(','))
         {
             if (int.TryParse(value, out int taskId))
@@ -157,19 +171,19 @@ public class PlayerTaskManager : MonoBehaviour
 
     private void SaveProgress()
     {
-        if (!enablePersistence)
+        if (!PersistenceEnabled)
             return;
 
-        PlayerPrefs.SetInt(StateKey(activeTaskStorage), (int)currentState);
-        PlayerPrefs.SetString(CompletedIdsKey(activeTaskStorage), string.Join(",", completedTaskIds));
-        PlayerPrefs.Save();
+        SaveManager.Instance.SetInt(StateKey(activeTaskStorage), (int)currentState);
+        SaveManager.Instance.SetString(CompletedIdsKey(activeTaskStorage), string.Join(",", completedTaskIds));
+        SaveManager.Instance.Save();
     }
 
     private QuestState ReadSavedState(TaskDataStorage storage)
     {
         if (!IsValidStorage(storage)) return QuestState.NotAccepted;
-        if (!enablePersistence) return QuestState.NotAccepted;
-        return (QuestState)PlayerPrefs.GetInt(StateKey(storage), (int)QuestState.NotAccepted);
+        if (!PersistenceEnabled) return QuestState.NotAccepted;
+        return (QuestState)SaveManager.Instance.GetInt(StateKey(storage), (int)QuestState.NotAccepted);
     }
 
     private static bool IsValidStorage(TaskDataStorage storage)

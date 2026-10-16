@@ -29,7 +29,18 @@ public class NextLevelButton : MonoBehaviour
         }
 
         UIPageSwitch pageSwitch = FindObjectOfType<UIPageSwitch>(true);
+        if (DataSystem.instance != null && DataSystem.instance.enablePersistence)
+        {
+            SaveManager.Instance.SetString("Game.ResumeScene", "Select");
+            SaveManager.Instance.Save();
+        }
         int nextPanelIndex = nextLevelId - 1;
+        if (pageSwitch == null && UnityEngine.Application.CanStreamedLevelBeLoaded("Select"))
+        {
+            hasTriggered = true;
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Select");
+            return;
+        }
         if (pageSwitch == null || pageSwitch.uiPanels == null ||
             nextPanelIndex < 0 || nextPanelIndex >= pageSwitch.uiPanels.Length)
         {

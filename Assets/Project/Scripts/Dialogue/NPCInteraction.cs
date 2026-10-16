@@ -94,6 +94,9 @@ public class NPCInteraction : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
+            FarmingPuzzle farming = GetComponentInParent<FarmingPuzzle>();
+            if (farming != null && (farming.ModalOpen ||
+                (dialogueData.isCoreNPC && farming.tasks.CurrentState >= PlayerTaskManager.QuestState.ObjectivesCompleted))) return;
             dm.StartDialogue(this);
         }
     }

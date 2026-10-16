@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float lastHorizontal = 0;
 
     public static PlayerMovement instance;
+    public bool InputLocked { get; set; }
 
 
     private void Awake()
@@ -31,8 +32,9 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical"); 
+        bool locked = InputLocked || (DialogueManager.Instance != null && DialogueManager.Instance.IsDialogueActive);
+        float horizontal = locked ? 0f : Input.GetAxisRaw("Horizontal");
+        float vertical = locked ? 0f : Input.GetAxisRaw("Vertical");
         Vector2 inputDirection = new Vector2(horizontal, vertical);
         if (inputDirection.magnitude > 1)
         {

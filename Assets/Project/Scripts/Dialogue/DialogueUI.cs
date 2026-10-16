@@ -88,8 +88,7 @@ public class DialogueUI : MonoBehaviour
     // ==================== 对话面板 ====================
 
     /// <summary>显示对话面板</summary>
-    public void ShowPanel()
-    {
+    public void ShowPanel() { gameObject.SetActive(true);
         if (dialoguePanel != null) dialoguePanel.SetActive(true);
     }
 
@@ -182,6 +181,7 @@ public class DialogueUI : MonoBehaviour
     /// <summary>显示"按E交互"提示</summary>
     public void ShowInteractionHint()
     {
+        if (FindObjectOfType<FarmingPuzzle>() != null) return;
         if (interactionHint != null) interactionHint.SetActive(true);
     }
 
@@ -191,3 +191,5 @@ public class DialogueUI : MonoBehaviour
         if (interactionHint != null) interactionHint.SetActive(false);
     }
 }
+
+
