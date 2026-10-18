@@ -78,6 +78,7 @@ public class CowFlee : MonoBehaviour
 
     private Rigidbody2D rb;
     private Animator anim;
+    private bool? runParameterAvailable;
     private float baseScaleXAbs = 1f;
 
     private bool isFleeing = false;
@@ -156,7 +157,7 @@ public class CowFlee : MonoBehaviour
         stuckTimer = 0f;
         forceUnstick = false;
 
-        if (anim != null) anim.SetBool(runBoolName, true);
+        SetRunAnim(true);
 
         float timer = 0f;
         while (timer < fleeDuration)
@@ -344,7 +345,19 @@ public class CowFlee : MonoBehaviour
         fleeRoutine = null;
         playerTransform = null;
         rb.velocity = Vector2.zero;
-        if (anim != null) anim.SetBool(runBoolName, false);
+        SetRunAnim(false);
+    }
+
+    private void SetRunAnim(bool running)
+    {
+        if (anim == null || anim.runtimeAnimatorController == null) return;
+        if (runParameterAvailable == null)
+        {
+            runParameterAvailable = false;
+            foreach (AnimatorControllerParameter p in anim.parameters)
+                if (p.type == AnimatorControllerParameterType.Bool && p.name == runBoolName) { runParameterAvailable = true; break; }
+        }
+        if (runParameterAvailable == true) anim.SetBool(runBoolName, running);
     }
 
     private void ApplyFacing(float moveX)

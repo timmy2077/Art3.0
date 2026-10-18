@@ -1,0 +1,51 @@
+{
+    "opening": [
+        { "text": "你意外闯入画像砖中的田野。完成这里的任务，找回缺失的拼图，复原这块画像砖。", "seconds": 5.0 },
+        { "text": "界面右上角有「拼图」按钮，点击后可以修复画像砖，但在你找齐缺失的拼图之前，无法修复。", "seconds": 5.0 },
+        { "text": "使用 WASD 或方向键移动。", "seconds": 4.0 },
+        { "text": "先找到头顶标有「耕民」的人，靠近后按 E 交谈。", "seconds": 4.0 }
+
+    ],
+    "accepted": "已接到耕民的任务。请完成它们，再向耕民领取缺失的拼图。",
+    "hints": {
+        "notAcceptedIntro": "找到头顶标有「耕民」的人，靠近后按 E 交谈。",
+        "notAcceptedFarmerMet": "继续与耕民交谈，选择接受他的任务。",
+        "brickSolved": "画像砖已复原。打开右上角「拼图」查看砖画，前往下一砖。",
+        "hasMissingPiece": "已获得缺失的拼图！点击右上角「拼图」，开始复原画像砖。",
+        "objectivesCompletedInRange": "按 E 向耕民交付任务，领取缺失的拼图。",
+        "objectivesCompletedFar": "任务已全部完成。回到耕民身边，按 E 交付，领取缺失的拼图。",
+        "takeTool": "E  拾起遗落的耕具",
+        "whiteCowFound": "发现白牛。",
+        "blackCowFound": "发现黑牛。",
+        "defaultHint": "请完成耕民交付的任务，完成后回去领取缺失的拼图。"
+    },
+    "interact": {
+        "notAcceptedBlock": "先问问耕民，他似乎正为春耕发愁。",
+        "toolPickupComplete": "「寻回遗落的耕具」任务已完成。",
+        "restoreBrickComplete": "交付任务已完成，获得缺失的拼图！\n拼图功能已解锁，点击右上角「拼图」复原画像砖。"
+    },
+    "cow": {
+        "whiteHerded": "白牛已被赶入栏中。",
+        "blackHerded": "黑牛已被赶入栏中。",
+        "resetCows": "未归栏的牛已回到田边，已完成的任务保留。换个方向再试试。"
+    },
+    "puzzle": {
+        "storyWithPiece": "缺失的拼图已找回。将砖画接续，让断开的农耕图景重现。",
+        "storyWithoutPiece": "这幅砖画遗失了一块残片，完成耕民的任务可以找回它。",
+        "hintLocked": "拼图少了一块，拼图功能已锁住。\n请找到缺失的那块，解锁拼图功能。",
+        "hintUnlocked": "点击两块残片可交换位置，复原完整的画像砖。",
+        "hintSelected": "再点击一块残片，与选中的残片交换。",
+        "entrySolved": "拼图 · 已复原",
+        "entryUnlocked": "拼图 · 已解锁",
+        "entryMissing": "拼图 · 缺失一块",
+        "title": "田桑稼穑 · 拼合扬场图",
+        "victoryTitle": "扬场图 · 砖画已修复",
+        "victoryKnowledge": "砖画中的人物与农具，共同组成扬场劳作的图景。\n循着画面线索，让散落的片段重新相连。",
+        "missingLabel": "缺失",
+        "continueButton": "收录砖画 · 前往下一砖",
+        "returnButton": "返回田野  Esc",
+        "farmerName": "耕民",
+        "toolName": "遗落的耕具",
+        "puzzleButton": "拼图"
+    }
+}

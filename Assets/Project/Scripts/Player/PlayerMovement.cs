@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float lastHorizontal = 0;
 
     public static PlayerMovement instance;
+    public bool InputLocked { get; set; }
 
 
     private void Awake()
@@ -31,8 +32,9 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical"); 
+        bool locked = InputLocked || (DialogueManager.Instance != null && DialogueManager.Instance.IsDialogueActive);
+        float horizontal = locked ? 0f : Input.GetAxisRaw("Horizontal");
+        float vertical = locked ? 0f : Input.GetAxisRaw("Vertical");
         Vector2 inputDirection = new Vector2(horizontal, vertical);
         if (inputDirection.magnitude > 1)
         {
@@ -63,15 +65,40 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         transform.localScale = new Vector3(flip, 1, 1);
-        anim.SetFloat("horizontal", Mathf.Abs(horizontal));
-        anim.SetFloat("vertical", Mathf.Abs(vertical));
 
         bool isRunning = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
         float currentSpeed = isRunning ? runSpeed : moveSpeed;
+        // 先保证物理移动生效，再更新动画——动画报错绝不能阻断移动。
         rb.velocity = inputDirection * currentSpeed;
-        anim.SetBool("IsRun", isRunning);
+        UpdateAnimator(horizontal, vertical, isRunning);
+    }
+
+    private int animParamState = 0; // 0=未检查 1=参数齐全 2=缺参数或无控制器
+
+    private void UpdateAnimator(float horizontal, float vertical, bool isRunning)
+    {
+        if (anim == null || anim.runtimeAnimatorController == null) return;
+        if (animParamState == 0)
+        {
+            animParamState = 2;
+            bool hasH = false, hasV = false, hasRun = false;
+            foreach (AnimatorControllerParameter p in anim.parameters)
+            {
+                if (p.name == "horizontal") hasH = true;
+                else if (p.name == "vertical") hasV = true;
+                else if (p.name == "IsRun") hasRun = true;
+            }
+            if (hasH && hasV && hasRun) animParamState = 1;
         }
-    }  
+        // 只对控制器中真实存在的参数赋值，避免每帧刷 "parameter does not exist"。
+        if (animParamState == 1)
+        {
+            anim.SetFloat("horizontal", Mathf.Abs(horizontal));
+            anim.SetFloat("vertical", Mathf.Abs(vertical));
+            anim.SetBool("IsRun", isRunning);
+        }
+    }
+}
 
 
 

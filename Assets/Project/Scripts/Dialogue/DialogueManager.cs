@@ -56,6 +56,8 @@ public class DialogueManager : MonoBehaviour
     private NPCInteraction currentNPC;
     private string[] currentLines;
     private int currentLineIndex;
+    private float dialogueOpenedRealtime = -999f;
+    private const float OpenInputIgnoreSeconds = 0.25f;
 
     /// <summary>当前是否有对话正在进行</summary>
     public bool IsDialogueActive => state != FlowState.None;
@@ -78,6 +80,9 @@ public class DialogueManager : MonoBehaviour
 
     void Start()
     {
+        LevelBase level = GetComponentInParent<LevelBase>();
+        if (level == null) level = FindObjectOfType<LevelBase>();
+        SafeConfigure(level);
         TaskDataStorage storage = taskInfoPanel != null ? taskInfoPanel.taskStorage : null;
         if (PlayerTaskManager.Instance == null || storage == null) return;
 
@@ -96,8 +101,9 @@ public class DialogueManager : MonoBehaviour
             state == FlowState.AfterScienceChoice)
             return;
 
-        // 检测继续按键
-        if (Input.GetKeyDown(continueKey) || Input.GetKeyDown(continueKeyAlt))
+        // 检测继续键（忽略开启对话的那一次 E 按下，避免同帧直接跳掉第一句）
+        if ((Input.GetKeyDown(continueKey) || Input.GetKeyDown(continueKeyAlt))
+            && Time.realtimeSinceStartup - dialogueOpenedRealtime > OpenInputIgnoreSeconds)
         {
             OnContinue();
         }
@@ -107,20 +113,44 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    /// <summary>关卡对对话 UI 的外观适配属于"锦上添花"，绝不能因为它抛异常而让对话打不开。</summary>
+    private void SafeConfigure(LevelBase level)
+    {
+        if (level == null) return;
+        try { level.ConfigureDialogueUI(this); }
+        catch (System.Exception e)
+        {
+            Debug.LogWarning("[DialogueManager] 关卡对话 UI 适配失败，已忽略，对话继续。\n" + e, level);
+        }
+    }
+
     // ==================== 开始对话 ====================
 
     /// <summary>由 NPCInteraction 调用，开始一段对话</summary>
     public void StartDialogue(NPCInteraction npc)
     {
         if (state != FlowState.None) return; // 已有对话进行中
+        if (npc == null || npc.dialogueData == null)
+        {
+            Debug.LogWarning("[DialogueManager] NPC 未配置 DialogueData，忽略本次交互。", npc);
+            return;
+        }
+        if (dialogueUI == null)
+        {
+            Debug.LogError("[DialogueManager] dialogueUI 未配置，无法开始对话。", this);
+            return;
+        }
 
         currentNPC = npc;
         DialogueData data = npc.dialogueData;
+        LevelBase level = npc.GetComponentInParent<LevelBase>();
 
-        dialogueUI.ShowPanel();
-        dialogueUI.SetNPCName(data.npcName);
-
-        OnDialogueStart?.Invoke();
+        // 先做所有可能失败的配置，再显示面板，避免面板打开后停在占位文字（"NPC/ok"）上。
+        if (level != null)
+        {
+            level.OnDialogueStarted(npc);
+            SafeConfigure(level);
+        }
 
         if (!data.isCoreNPC)
         {
@@ -142,7 +172,22 @@ public class DialogueManager : MonoBehaviour
         }
 
         currentLineIndex = 0;
-        ShowCurrentLine();
+        dialogueOpenedRealtime = Time.realtimeSinceStartup;
+
+        try
+        {
+            dialogueUI.SetNPCName(data.npcName);
+            dialogueUI.ShowPanel();
+            OnDialogueStart?.Invoke();
+            ShowCurrentLine();
+        }
+        catch (System.Exception e)
+        {
+            // 显示环节失败时必须复位状态机，否则玩家会卡在"无法对话也无法操作"的状态。
+            state = FlowState.None;
+            dialogueUI.HidePanel();
+            Debug.LogError("[DialogueManager] 对话显示失败：\n" + e, this);
+        }
     }
 
     // ==================== 继续对话 ====================

@@ -94,6 +94,9 @@ public class NPCInteraction : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
+            LevelBase level = GetComponentInParent<LevelBase>();
+            if (level != null && (level.ModalOpen ||
+                (dialogueData.isCoreNPC && level.tasks.CurrentState >= PlayerTaskManager.QuestState.ObjectivesCompleted))) return;
             dm.StartDialogue(this);
         }
     }

@@ -38,7 +38,7 @@ public sealed class CowEscape2D : MonoBehaviour
 
     [Header("Teleport")]
     [Tooltip("总开关：是否允许牛在危急/卡住时瞬移。关闭后牛只做射线寻路和贴墙滑行，绝不瞬移。")]
-    [SerializeField] private bool enableTeleport = false;
+    [SerializeField] private bool enableTeleport = true;
 
     [Tooltip("Extra gap between the cow and player bodies that triggers teleport.")]
     [SerializeField, Min(0.05f)] private float dangerGap = 0.6f;
@@ -52,7 +52,7 @@ public sealed class CowEscape2D : MonoBehaviour
 
     private readonly RaycastHit2D[] castHits = new RaycastHit2D[32];
     private readonly RaycastHit2D[] slideHits = new RaycastHit2D[32];
-    private readonly Collider2D[] landingHits = new Collider2D[1];
+    private readonly Collider2D[] landingHits = new Collider2D[64];
     private static readonly int RunParameter = Animator.StringToHash("run");
     private Rigidbody2D body;
     private ContactFilter2D obstacleFilter;
@@ -171,6 +171,12 @@ public sealed class CowEscape2D : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if ((PlayerMovement.instance != null && PlayerMovement.instance.InputLocked) ||
+            (DialogueManager.Instance != null && DialogueManager.Instance.IsDialogueActive))
+        {
+            StopEscaping();
+            return;
+        }
         if (player == null || cowCollider == null || !cowCollider.enabled)
         {
             StopEscaping();
@@ -365,15 +371,30 @@ public sealed class CowEscape2D : MonoBehaviour
         float maxDistance = Mathf.Max(teleportMaxDistance, minDistance + 0.1f);
         float radius = CowRadius + wallPadding;
 
+        // The player stands between the cow and the preferred landing point.
+        // This also works when the player stops moving or approaches vertically.
+        Vector2 behindPlayer = playerPosition - (Vector2)cowCollider.bounds.center;
+        if (behindPlayer.sqrMagnitude < 0.0001f) behindPlayer = Vector2.right;
+        behindPlayer.Normalize();
+        var landingFilter = new ContactFilter2D();
+        landingFilter.NoFilter();
+        landingFilter.useTriggers = false;
         for (int i = 0; i < teleportAttempts; i++)
         {
-            float angle = Random.Range(0f, Mathf.PI * 2f);
-            float distance = Mathf.Sqrt(Random.Range(minDistance * minDistance, maxDistance * maxDistance));
-            Vector2 target = playerPosition + new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * distance;
+            // Search the rear semicircle first, then the remaining directions.
+            int sample = i % 16;
+            float angle = sample == 0 ? 0f : ((sample + 1) / 2) * 11.25f * (sample % 2 == 1 ? 1f : -1f);
+            if (i >= 48) angle = (i - 48) * 22.5f;
+            float distance = Mathf.Lerp(minDistance, maxDistance, Mathf.Min(i / 16, 2) / 2f);
+            Vector2 direction = Quaternion.Euler(0, 0, angle) * behindPlayer;
+            Vector2 target = playerPosition + direction * distance;
             if (!InsideBounds(target, radius))
                 continue;
-            if (Physics2D.OverlapCircle(target, radius, obstacleFilter, landingHits) > 0)
-                continue;
+            int count = Physics2D.OverlapCircle(target, radius, landingFilter, landingHits);
+            bool blocked = count == landingHits.Length;
+            for (int hit = 0; hit < count && !blocked; hit++)
+                blocked = landingHits[hit].attachedRigidbody != body;
+            if (blocked) continue;
 
             Vector2 centerOffset = (Vector2)cowCollider.bounds.center - body.position;
             body.velocity = Vector2.zero;
@@ -399,9 +420,25 @@ public sealed class CowEscape2D : MonoBehaviour
                center.y - radius >= worldBounds.yMin && center.y + radius <= worldBounds.yMax;
     }
 
+    private bool? runParameterAvailable;
+
     private void SetRunning(bool running)
     {
-        if (animator != null && animator.runtimeAnimatorController != null)
+        if (animator == null || animator.runtimeAnimatorController == null) return;
+        if (runParameterAvailable == null)
+        {
+            runParameterAvailable = false;
+            foreach (AnimatorControllerParameter p in animator.parameters)
+            {
+                if (p.type == AnimatorControllerParameterType.Bool && p.nameHash == RunParameter)
+                {
+                    runParameterAvailable = true;
+                    break;
+                }
+            }
+        }
+        // 控制器没有 run 参数（如旧版黑牛控制器）时跳过，避免每帧刷 "parameter does not exist"。
+        if (runParameterAvailable == true)
             animator.SetBool(RunParameter, running);
     }
 

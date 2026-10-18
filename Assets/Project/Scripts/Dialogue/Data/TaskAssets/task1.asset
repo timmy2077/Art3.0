@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b17d7038a6f5ab4ba9ec9468177dbe0, type: 3}
   m_Name: task1
   m_EditorClassIdentifier: 
-  questId: level_1_farming
+  questId: level_1_farming_herding_v2
   tasks:
   - taskId: 1
-    taskText: "\u6293\u767D\u725B"
+    taskText: "将白牛赶入牛栏"
   - taskId: 2
-    taskText: "\u6293\u9ED1\u725B"
+    taskText: "将黑牛赶入牛栏"
   - taskId: 3
-    taskText: "\u627E\u8015\u7281"
+    taskText: "寻回遗落的耕具"
   finalTaskId: 0
-  finalTaskText: "\u8FD4\u56DE\u8015\u6C11\u5904"
+  finalTaskText: "返回耕民处交付任务，领取缺失的拼图"
