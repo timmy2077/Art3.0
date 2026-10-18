@@ -181,7 +181,11 @@ public class DialogueUI : MonoBehaviour
     /// <summary>显示"按E交互"提示</summary>
     public void ShowInteractionHint()
     {
+<<<<<<< HEAD
         if (FindObjectOfType<LevelBase>() != null) return;
+=======
+        if (FindObjectOfType<FarmingPuzzle>() != null) return;
+>>>>>>> c8f4e59c67fce65468dcbe88b8c23ee32a4081da
         if (interactionHint != null) interactionHint.SetActive(true);
     }
 
