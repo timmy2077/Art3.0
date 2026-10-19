@@ -22,13 +22,22 @@ public class IndexMainMenu : MonoBehaviour
     public Slider musicVolumeSlider;
     public Slider soundVolumeSlider;
     public Text journalText;
+    [SerializeField] private CompanionJournal journalPrefab;
+    private CompanionJournal companionJournal;
     private GameObject newGameConfirmation;
     private Text confirmationMessage;
     private bool transitioning;
 
+    private void Awake()
+    {
+        if (!IndexPrologue.ConsumeRequest()) return;
+        IndexPrologue prefab = Resources.Load<IndexPrologue>("IndexPrologue");
+        if (prefab != null) Instantiate(prefab).Begin();
+    }
+
     public void ContinueGame()
     {
-        if (transitioning) return;
+        if (transitioning || IndexPrologue.IsPlaying) return;
         string scene = DataSystem.instance != null && DataSystem.instance.enablePersistence
             ? SaveManager.Instance.GetString("Game.ResumeScene", "Select") : "Select";
         // Only known gameplay destinations may be resumed.
@@ -45,7 +54,7 @@ public class IndexMainMenu : MonoBehaviour
 
     public void NewGame()
     {
-        if (transitioning) return;
+        if (transitioning || IndexPrologue.IsPlaying) return;
         if (newGameConfirmation == null) BuildNewGameConfirmation();
         confirmationMessage.text = "重新入画将清空关卡、任务与收藏进度。\n名字和音量设置保留。是否重新开始？";
         newGameConfirmation.SetActive(true);
@@ -54,7 +63,7 @@ public class IndexMainMenu : MonoBehaviour
 
     private void ConfirmNewGame()
     {
-        if (transitioning) return;
+        if (transitioning || IndexPrologue.IsPlaying) return;
         if (!Application.CanStreamedLevelBeLoaded("Start"))
         {
             confirmationMessage.text = "Start 场景不可用，未重置进度。";
@@ -118,6 +127,23 @@ public class IndexMainMenu : MonoBehaviour
 
     private void Start()
     {
+        CompanionJournal prefab = journalPrefab != null ? journalPrefab : Resources.Load<CompanionJournal>("CompanionJournal");
+        if (prefab != null)
+        {
+            companionJournal = Instantiate(prefab, journalWindow.transform.parent);
+            companionJournal.Initialize(id => DataSystem.instance != null && DataSystem.instance.IsLevelUnlocked(id), DialogueHistory.HasRead);
+            companionJournal.gameObject.SetActive(false);
+            foreach (Companion companion in companions)
+            {
+                if (companion.portrait == null) continue;
+                Button button = companion.portrait.GetComponent<Button>() ?? companion.portrait.gameObject.AddComponent<Button>();
+                companion.portrait.raycastTarget = true;
+                button.targetGraphic = companion.portrait;
+                button.transition = Selectable.Transition.None;
+                button.onClick.AddListener(() => OpenCompanion(companion.completedLevel));
+            }
+            UiClickSoundInstaller.ScanGameObject(gameObject);
+        }
         settingsWindow.SetActive(false);
         journalWindow.SetActive(false);
         musicVolumeSlider.onValueChanged.AddListener(SetMusicVolume);
@@ -135,12 +161,19 @@ public class IndexMainMenu : MonoBehaviour
         {
             // 当前项目以解锁下一关作为通关记录；第一关默认开放不会解锁伙伴。
             bool unlocked = data.IsLevelUnlocked(companion.completedLevel + 1);
+            CompanionProfile profile = companionJournal != null ? companionJournal.FindProfile(companion.completedLevel) : null;
+            string name = profile != null ? profile.displayName : companion.displayName;
             if (unlocked) count++;
             if (companion.portrait != null)
+            {
                 companion.portrait.color = unlocked ? Color.white : new Color(.28f, .23f, .19f, .16f);
+                if (profile != null && profile.portrait != null) companion.portrait.sprite = profile.portrait;
+                Button button = companion.portrait.GetComponent<Button>();
+                if (button != null) button.interactable = unlocked && profile != null;
+            }
             if (companion.caption != null)
-                companion.caption.text = unlocked ? companion.displayName : "第 " + companion.completedLevel + " 关相逢";
-            journal += (unlocked ? "已相逢  ·  " + companion.displayName : "待相逢  ·  通关第 " + companion.completedLevel + " 关") + "\n\n";
+                companion.caption.text = unlocked ? name : "第 " + companion.completedLevel + " 关相逢";
+            journal += (unlocked ? "已相逢  ·  " + name : "待相逢  ·  通关第 " + companion.completedLevel + " 关") + "\n\n";
         }
         journeyText.text = "已与 " + count + " 位故人相逢 · 继续入画，续写故事";
         journalText.text = journal;
@@ -148,9 +181,24 @@ public class IndexMainMenu : MonoBehaviour
         soundVolumeSlider.SetValueWithoutNotify(data.GetSettingsSFX() ? data.GetSettingsSoundVolume() : 0f);
     }
 
-    public void OpenSettings() { CloseWindows(); Refresh(); settingsWindow.SetActive(true); settingsWindow.transform.SetAsLastSibling(); }
-    public void OpenJournal() { CloseWindows(); Refresh(); journalWindow.SetActive(true); journalWindow.transform.SetAsLastSibling(); }
-    public void CloseWindows() { settingsWindow.SetActive(false); journalWindow.SetActive(false); if (newGameConfirmation != null) newGameConfirmation.SetActive(false); }
+    public void OpenSettings() { if (IndexPrologue.IsPlaying) return; CloseWindows(); Refresh(); settingsWindow.SetActive(true); settingsWindow.transform.SetAsLastSibling(); }
+    public void OpenJournal()
+    {
+        if (IndexPrologue.IsPlaying) return;
+        CloseWindows(); Refresh();
+        if (companionJournal != null) companionJournal.OpenList();
+        else { journalWindow.SetActive(true); journalWindow.transform.SetAsLastSibling(); }
+    }
+    public void OpenCompanion(int completedLevel)
+    {
+        if (IndexPrologue.IsPlaying) return;
+        if (companionJournal == null) return;
+        CompanionProfile profile = companionJournal.FindProfile(completedLevel);
+        if (!companionJournal.IsMet(profile)) return;
+        CloseWindows();
+        companionJournal.OpenProfile(profile);
+    }
+    public void CloseWindows() { settingsWindow.SetActive(false); journalWindow.SetActive(false); if (companionJournal != null) companionJournal.Close(); if (newGameConfirmation != null) newGameConfirmation.SetActive(false); }
     private void SetMusicVolume(float volume) { if (DataSystem.instance != null) DataSystem.instance.SaveSettingsMusicVolume(volume); }
     private void SetSoundVolume(float volume) { if (DataSystem.instance != null) DataSystem.instance.SaveSettingsSoundVolume(volume); }
     private void OnDestroy()
@@ -160,11 +208,19 @@ public class IndexMainMenu : MonoBehaviour
     }
     public void QuitGame()
     {
+        if (IndexPrologue.IsPlaying) return;
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
         Application.Quit();
 #endif
     }
-    private void Update() { if (Input.GetKeyDown(KeyCode.Escape)) CloseWindows(); }
+    private void Update()
+    {
+        if (IndexPrologue.IsPlaying) return;
+        if (!Input.GetKeyDown(KeyCode.Escape)) return;
+        if (companionJournal != null && companionJournal.gameObject.activeSelf && companionJournal.IsDetailOpen)
+            companionJournal.BackToList();
+        else CloseWindows();
+    }
 }

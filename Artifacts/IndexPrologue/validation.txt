@@ -1,0 +1,1 @@
+PASS: Unity compile, prefab references, full text fits, one-shot Start-to-Index request.

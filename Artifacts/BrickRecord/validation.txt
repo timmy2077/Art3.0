@@ -1,0 +1,10 @@
+PASS
+Five records and image references
+Detail open and nested close
+Zoom clamps 100%-400%, preserves center/pan and resets per artwork
+Missing image and metadata fallback
+Scroll reset, visible scrollbar and long text
+List button event binding
+Five Unity-rendered layout captures
+No player save data read or written
+Touch gestures require device testing

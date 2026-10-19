@@ -150,7 +150,16 @@ public class TaskInfoPanel : MonoBehaviour
             {
                 congratulationShown = true;
                 if (congratulationsPanel != null)
+                {
+                    NextLevelButton rewards = congratulationsPanel.GetComponentInChildren<NextLevelButton>(true);
+                    if (rewards != null) rewards.GrantBrickRewards();
+                    Transform panel = congratulationsPanel.transform.Find("Image");
+                    if (panel != null)
+                    {
+                        BrickRewardView.Show(panel, rewards, new Vector2(1100, 500));
+                    }
                     congratulationsPanel.SetActive(true);
+                }
             }
             else if (!finalCompleted && congratulationsPanel != null)
             {

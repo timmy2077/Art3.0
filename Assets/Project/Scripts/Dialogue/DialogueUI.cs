@@ -64,6 +64,7 @@ public class DialogueUI : MonoBehaviour
     private Coroutine typeCoroutine;
     private string currentFullText;
     private bool isTyping = false;
+    private System.Action lineRevealed;
 
     /// <summary>当前是否正在打字</summary>
     public bool IsTyping => isTyping;
@@ -95,6 +96,10 @@ public class DialogueUI : MonoBehaviour
     /// <summary>隐藏对话面板</summary>
     public void HidePanel()
     {
+        if (typeCoroutine != null) StopCoroutine(typeCoroutine);
+        typeCoroutine = null;
+        isTyping = false;
+        lineRevealed = null;
         if (dialoguePanel != null) dialoguePanel.SetActive(false);
     }
 
@@ -105,9 +110,10 @@ public class DialogueUI : MonoBehaviour
     }
 
     /// <summary>开始用打字机效果显示一行对话</summary>
-    public void ShowDialogueLine(string text)
+    public void ShowDialogueLine(string text, System.Action onRevealed = null)
     {
         currentFullText = text;
+        lineRevealed = onRevealed;
         if (continueHint != null) continueHint.SetActive(false);
 
         if (typeCoroutine != null) StopCoroutine(typeCoroutine);
@@ -125,6 +131,7 @@ public class DialogueUI : MonoBehaviour
         isTyping = false;
         if (dialogueText != null) dialogueText.text = currentFullText;
         if (continueHint != null) continueHint.SetActive(true);
+        NotifyLineRevealed();
     }
 
     private IEnumerator TypeTextCoroutine(string text)
@@ -141,6 +148,22 @@ public class DialogueUI : MonoBehaviour
         isTyping = false;
         typeCoroutine = null;
         if (continueHint != null) continueHint.SetActive(true);
+        NotifyLineRevealed();
+    }
+
+    private void NotifyLineRevealed()
+    {
+        System.Action callback = lineRevealed;
+        lineRevealed = null;
+        callback?.Invoke();
+    }
+
+    private void OnDisable()
+    {
+        if (typeCoroutine != null) StopCoroutine(typeCoroutine);
+        typeCoroutine = null;
+        isTyping = false;
+        lineRevealed = null;
     }
 
     // ==================== 选项面板 ====================
@@ -181,11 +204,7 @@ public class DialogueUI : MonoBehaviour
     /// <summary>显示"按E交互"提示</summary>
     public void ShowInteractionHint()
     {
-<<<<<<< HEAD
         if (FindObjectOfType<LevelBase>() != null) return;
-=======
-        if (FindObjectOfType<FarmingPuzzle>() != null) return;
->>>>>>> c8f4e59c67fce65468dcbe88b8c23ee32a4081da
         if (interactionHint != null) interactionHint.SetActive(true);
     }
 

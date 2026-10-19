@@ -1,0 +1,1 @@
+PASS: Unity compile; RecordUI counter refresh and total; reward catalog references; duplicate/empty IDs filtered; zero/two/five rewards; all reward sprites; completion prefab layout rendered.

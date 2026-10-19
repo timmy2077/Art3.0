@@ -1,0 +1,26 @@
+{
+  "note": "Refreshed scene/animation data is authoritative in resource-audit.json; initial dependency snapshot superseded.",
+  "sceneSummary": [
+    {
+      "path": "Assets/Project/Scenes/Index.unity",
+      "textures": 7,
+      "sourceRGBA_MiB": 41.20751953125
+    },
+    {
+      "path": "Assets/Project/Scenes/Level1.unity",
+      "textures": 187,
+      "sourceRGBA_MiB": 487.15692138671875
+    },
+    {
+      "path": "Assets/Project/Scenes/Select.unity",
+      "textures": 618,
+      "sourceRGBA_MiB": 3888.6099395751953
+    },
+    {
+      "path": "Assets/Project/Scenes/Start.unity",
+      "textures": 150,
+      "sourceRGBA_MiB": 1188.3056640625
+    }
+  ],
+  "scriptCount": 50
+}

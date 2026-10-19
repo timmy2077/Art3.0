@@ -13,6 +13,7 @@ public class SwitchSceneOnFrame : MonoBehaviour
             return;
         }
 
+        if (gameObject.scene.name == "Start" && targetSceneName == "Index") IndexPrologue.Request();
         SceneManager.LoadScene(targetSceneName);
     }
 }

@@ -80,15 +80,9 @@ public class DialogueManager : MonoBehaviour
 
     void Start()
     {
-<<<<<<< HEAD
         LevelBase level = GetComponentInParent<LevelBase>();
         if (level == null) level = FindObjectOfType<LevelBase>();
         SafeConfigure(level);
-=======
-        FarmingPuzzle farming = GetComponentInParent<FarmingPuzzle>();
-        if (farming == null) farming = FindObjectOfType<FarmingPuzzle>();
-        if (farming != null) farming.ConfigureDialogueUI(this);
->>>>>>> c8f4e59c67fce65468dcbe88b8c23ee32a4081da
         TaskDataStorage storage = taskInfoPanel != null ? taskInfoPanel.taskStorage : null;
         if (PlayerTaskManager.Instance == null || storage == null) return;
 
@@ -148,26 +142,15 @@ public class DialogueManager : MonoBehaviour
         }
 
         currentNPC = npc;
-        FarmingPuzzle farming = npc.GetComponentInParent<FarmingPuzzle>();
-        if (farming != null && npc.transform == farming.farmer) farming.OnFarmerDialogueStarted();
         DialogueData data = npc.dialogueData;
         LevelBase level = npc.GetComponentInParent<LevelBase>();
 
-<<<<<<< HEAD
         // 先做所有可能失败的配置，再显示面板，避免面板打开后停在占位文字（"NPC/ok"）上。
         if (level != null)
         {
             level.OnDialogueStarted(npc);
             SafeConfigure(level);
         }
-=======
-        dialogueUI.ShowPanel();
-        // Activate the initially disabled canvas before changing its serialized references.
-        if (farming != null) farming.ConfigureDialogueUI(this);
-        dialogueUI.SetNPCName(data.npcName);
-
-        OnDialogueStart?.Invoke();
->>>>>>> c8f4e59c67fce65468dcbe88b8c23ee32a4081da
 
         if (!data.isCoreNPC)
         {
@@ -277,7 +260,12 @@ public class DialogueManager : MonoBehaviour
             OnPhaseComplete();
             return;
         }
-        dialogueUI.ShowDialogueLine(currentLines[currentLineIndex]);
+        DialogueData source = currentNPC.dialogueData;
+        int index = currentLineIndex;
+        DialogueSection section = state == FlowState.Greeting ? DialogueSection.Greeting :
+            state == FlowState.TaskLine ? DialogueSection.Task :
+            state == FlowState.ScienceLine ? DialogueSection.Science : DialogueSection.Minor;
+        dialogueUI.ShowDialogueLine(currentLines[index], () => DialogueHistory.MarkRead(source, section, index));
     }
 
     /// <summary>当前阶段（寒暄/任务/科普）对话全部播完后的处理</summary>

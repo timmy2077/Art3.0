@@ -9,6 +9,14 @@ public class NextLevelButton : MonoBehaviour
     [SerializeField] private string[] rewardBrickIds;
 
     private bool hasTriggered;
+    public string[] RewardBrickIds => rewardBrickIds;
+
+    public void GrantBrickRewards()
+    {
+        if (DataSystem.instance == null || rewardBrickIds == null) return;
+        foreach (string id in rewardBrickIds)
+            if (!string.IsNullOrWhiteSpace(id)) DataSystem.instance.UnlockBrick(id.Trim());
+    }
 
     public void UnlockAndShowNextLevel()
     {
@@ -17,11 +25,7 @@ public class NextLevelButton : MonoBehaviour
         if (DataSystem.instance != null)
         {
             DataSystem.instance.UnlockLevel(nextLevelId);
-            if (rewardBrickIds != null)
-            {
-                foreach (string brickId in rewardBrickIds)
-                    DataSystem.instance.UnlockBrick(brickId);
-            }
+            GrantBrickRewards();
         }
         else
         {

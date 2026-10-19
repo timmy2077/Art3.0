@@ -1,0 +1,12 @@
+PASS
+Four SO profiles and runtime prefab
+Met buttons enabled, unmet buttons disabled and guarded
+List click opens SO-driven identity and experience
+Only read dialogue lines visible; unread branches hidden
+Minor NPC sections and duplicate SO references
+Back/close hierarchy and scroll reset
+Text revision invalidates stale read key
+Typewriter natural/skip callback once; interrupted line not recorded
+Actual Index scene menu initialization and portrait click routing
+1920x1080 and 2400x1080 layout renders
+No player save data read or written

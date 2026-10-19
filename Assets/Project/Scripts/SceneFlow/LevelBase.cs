@@ -319,6 +319,7 @@ public abstract class LevelBase : MonoBehaviour
                 SavePuzzleValue("Solved", 1);
                 DataSystem.instance?.UnlockBrick(BrickKey);
                 DataSystem.instance?.UnlockLevel(NextLevelIndex);
+                if (nextLevel != null) nextLevel.GrantBrickRewards();
                 puzzleContent.SetActive(false); victoryContent.SetActive(true);
             }
         }
@@ -409,6 +410,8 @@ public abstract class LevelBase : MonoBehaviour
         GameObject picture = new GameObject("RestoredPainting", typeof(RectTransform), typeof(Image)); picture.transform.SetParent(victoryContent.transform, false);
         Place(picture.GetComponent<RectTransform>(), new Vector2(0.5f, 0.5f), new Vector2(0, 55), paintingSize);
         picture.GetComponent<Image>().color = Color.white; picture.GetComponent<Image>().sprite = restoredBrick; picture.GetComponent<Image>().preserveAspect = true;
+        picture.SetActive(false);
+        BrickRewardView.Show(victoryContent.transform, nextLevel, new Vector2(1500, 560));
         completionActions = new GameObject("CompletionActions", typeof(RectTransform)); completionActions.transform.SetParent(victoryContent.transform, false);
         Label(completionActions.transform, "Knowledge", p?.victoryKnowledge ?? "", new Vector2(0.5f, 0.5f), new Vector2(0, -300), new Vector2(1530, 100), 29);
         MakeButton(completionActions.transform, "ContinueButton", p?.continueButton ?? "收录砖画 · 前往下一砖", new Vector2(0, -405), ContinueChapter);

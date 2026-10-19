@@ -9,6 +9,16 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewDialogue", menuName = "尘封砖语/对话数据")]
 public class DialogueData : ScriptableObject
 {
+    [HideInInspector] public string historyId;
+
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        string path = UnityEditor.AssetDatabase.GetAssetPath(this);
+        if (!string.IsNullOrEmpty(path)) historyId = UnityEditor.AssetDatabase.AssetPathToGUID(path);
+    }
+#endif
+
     [Header("NPC 基本信息")]
     [Tooltip("NPC 的显示名称，会显示在对话面板顶部")]
     public string npcName = "NPC";
