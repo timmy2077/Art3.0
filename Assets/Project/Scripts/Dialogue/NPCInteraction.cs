@@ -23,6 +23,9 @@ public class NPCInteraction : MonoBehaviour
     [Tooltip("是否使用2D碰撞器（2D游戏勾选，3D游戏取消）")]
     public bool use2DCollider = true;
 
+    [Tooltip("关闭时由所属关卡统一处理交互按键，避免同一次按键触发多个行为。")]
+    public bool automaticKeyboardInteraction = true;
+
     [Header("状态（运行时自动更新，无需手动设置）")]
     [Tooltip("科普线是否已完成")]
     public bool IsScienceCompleted = false;
@@ -83,6 +86,8 @@ public class NPCInteraction : MonoBehaviour
 
     void Update()
     {
+        if (DebugUnlockPanel.BlocksGameplayInput) return;
+        if (!automaticKeyboardInteraction) return;
         if (dialogueData == null) return;
         if (!playerInRange) return;
 
@@ -95,8 +100,7 @@ public class NPCInteraction : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             LevelBase level = GetComponentInParent<LevelBase>();
-            if (level != null && (level.ModalOpen ||
-                (dialogueData.isCoreNPC && level.tasks.CurrentState >= PlayerTaskManager.QuestState.ObjectivesCompleted))) return;
+            if (level != null && !level.AllowNPCDialogue(this)) return;
             dm.StartDialogue(this);
         }
     }
@@ -105,6 +109,7 @@ public class NPCInteraction : MonoBehaviour
 
     private void ShowHint()
     {
+        if (!automaticKeyboardInteraction) return;
         var dm = DialogueManager.Instance;
         if (dm != null && dm.dialogueUI != null)
             dm.dialogueUI.ShowInteractionHint();
@@ -116,6 +121,14 @@ public class NPCInteraction : MonoBehaviour
         if (dm != null && dm.dialogueUI != null)
             dm.dialogueUI.HideInteractionHint();
     }
+
+    public void ResetInteractionRange()
+    {
+        playerInRange = false;
+        HideHint();
+    }
+
+    private void OnDisable() { ResetInteractionRange(); }
 
     /// <summary>通知 DialogueManager 玩家离开了NPC范围</summary>
     private void NotifyPlayerLeft()

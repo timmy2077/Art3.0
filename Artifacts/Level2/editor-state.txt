@@ -1,0 +1,1 @@
+play=False paused=False scene=Assets/Project/Scenes/Index.unity focus= (UnityEditor.ProjectBrowser) qa=

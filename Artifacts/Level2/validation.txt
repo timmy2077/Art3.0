@@ -1,0 +1,1 @@
+PASS: Level2 references; independent quest; six chef dialogue stages; paochu puzzle/reward; no cow/fence/farming components; no missing scripts.

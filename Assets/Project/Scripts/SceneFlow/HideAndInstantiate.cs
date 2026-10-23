@@ -7,6 +7,8 @@ public class HideAndInstantiate : MonoBehaviour
 
     public void OnAnimationFrame()
     {
+        // 视频模式下旧动画事件不可再生成一份关卡。
+        if (!isActiveAndEnabled) return;
         if (uiToHide != null)
         {
             CanvasGroup canvasGroup = uiToHide.GetComponentInParent<CanvasGroup>(true);

@@ -41,7 +41,7 @@ public class IndexMainMenu : MonoBehaviour
         string scene = DataSystem.instance != null && DataSystem.instance.enablePersistence
             ? SaveManager.Instance.GetString("Game.ResumeScene", "Select") : "Select";
         // Only known gameplay destinations may be resumed.
-        if (scene != "Level1" && scene != "Select" && scene != "Start") scene = "Select";
+        if (scene != "Level1" && scene != "Level2" && scene != "Select" && scene != "Start") scene = "Select";
         if (!Application.CanStreamedLevelBeLoaded(scene))
         {
             Debug.LogError("[IndexMainMenu] 继续游戏的场景未加入 Build Settings：" + scene);
@@ -217,6 +217,7 @@ public class IndexMainMenu : MonoBehaviour
     }
     private void Update()
     {
+        if (DebugUnlockPanel.BlocksGameplayInput) return;
         if (IndexPrologue.IsPlaying) return;
         if (!Input.GetKeyDown(KeyCode.Escape)) return;
         if (companionJournal != null && companionJournal.gameObject.activeSelf && companionJournal.IsDetailOpen)

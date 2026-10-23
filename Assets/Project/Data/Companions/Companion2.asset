@@ -12,9 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0c1c6f86a356448aeeb1983af104a7, type: 3}
   m_Name: Companion2
   m_EditorClassIdentifier: 
-  displayName: "\u7B2C2\u4F4D\u6545\u4EBA"
+  displayName: "\u5E96\u957F"
   portrait: {fileID: 21300000, guid: a5484c99748ba69418ba8f3b44d0a12a, type: 3}
   completedLevel: 2
-  identity: "\u4EBA\u7269\u8EAB\u4EFD\u5C1A\u672A\u8BB0\u5F55\u3002"
-  sharedExperience: "\u4E0E\u4E3B\u89D2\u7684\u7ECF\u5386\u5C1A\u672A\u8BB0\u5F55\u3002"
-  relatedDialogues: []
+  identity: "\u8D1F\u8D23\u5B85\u9662\u5907\u9910\u4E0E\u98DF\u5668\u6574\u7406\u7684\u5E96\u957F\uFF0C\u4EBA\u7269\u53C2\u8003\u300A\u5E96\u53A8\u56FE\u300B\u4E2D\u7684\u5E96\u53A8\u52B3\u4F5C\u8005\u3002"
+  sharedExperience: "\u5BFB\u7816\u4EBA\u5BFB\u56DE\u98DF\u5668\u3001\u758F\u901A\u7089\u9053\uFF0C\u5E76\u5C06\u5668\u7269\u9001\u81F3\u5385\u5802\u914D\u5BF9\u5F52\u4F4D\u3002\u5E96\u957F\u4EA4\u51FA\u7F3A\u5931\u788E\u7247\uFF0C\u5E2E\u52A9\u5BFB\u7816\u4EBA\u590D\u539F\u5E96\u53A8\u56FE\u3002"
+  relatedDialogues:
+  - {fileID: 11400000, guid: cc7d697d0655c61408e86372d902b263, type: 2}
+  - {fileID: 11400000, guid: 9412030ee4715e4459926ba588d46892, type: 2}
+  - {fileID: 11400000, guid: adb700b3909ecb94f8849b06d283342f, type: 2}
+  - {fileID: 11400000, guid: 14aa058ac0c8f7145a8d7acb38bf7c89, type: 2}
+  - {fileID: 11400000, guid: b3a1165b3da7dca4c9eaf1e8f1546786, type: 2}
+  - {fileID: 11400000, guid: 96d719e8b8f4e20438da52c88d1f4e4e, type: 2}

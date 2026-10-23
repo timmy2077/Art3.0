@@ -1,0 +1,1 @@
+PASS: restaurant exterior/interior, shared player/chef, door interaction, saved area, complete cooking chapter, collection/unlock, return and first-level regression. Video not rerun. Player save file unchanged.

@@ -93,6 +93,7 @@ public class BrickImageViewer : MonoBehaviour, IScrollHandler
 
     private void Update()
     {
+        if (DebugUnlockPanel.BlocksGameplayInput) return;
         if (Input.touchCount == 2)
         {
             Touch first = Input.GetTouch(0);

@@ -1,0 +1,96 @@
+Editor: play=False scenes=Assets/Project/Scenes/Level1.unity dirty=False
+PREFAB Assets/Project/Prefabs/Level1.prefab
+ active=True pos=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,FarmingPuzzle,LevelRuntimeBootstrap
+Ground active=True pos=(-11.72, 11.68, 0.00) scale=(1.00, 1.00, 1.00) components=Transform
+Ground/10002 active=True pos=(5.96, 10.36, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,SpriteRenderer sprite=Assets/Project/Art/Environments/Backgrounds/pictorial-brick-clean-seamless.png bounds=Center: (5.96, 10.36, 0.00), Extents: (27.50, 16.00, 0.10) sort=0
+Ground/地图 active=False pos=(6.13, 0.31, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,SpriteRenderer sprite= bounds=Center: (6.13, 0.31, 0.00), Extents: (0.00, 0.00, 0.00) sort=0
+Ground/地图 (1) active=False pos=(23.95, 0.31, 0.00) scale=(-1.00, 1.00, 1.00) components=Transform,SpriteRenderer sprite= bounds=Center: (23.95, 0.31, 0.00), Extents: (0.00, 0.00, 0.00) sort=0
+Ground/重制版地图_0 active=False pos=(6.00, 0.43, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,SpriteRenderer sprite=Assets/Project/Art/Environments/Backgrounds/重制版地图.png bounds=Center: (6.00, 0.43, 0.00), Extents: (8.96, 5.11, 0.10) sort=-1
+Ground/重制版地图_0 (3) active=False pos=(6.00, 10.65, 0.00) scale=(-1.00, 1.00, 1.00) components=Transform,SpriteRenderer sprite=Assets/Project/Art/Environments/Backgrounds/重制版地图.png bounds=Center: (6.00, 10.65, 0.00), Extents: (8.96, 5.11, 0.10) sort=-1
+Ground/重制版地图_0 (5) active=False pos=(-11.92, 10.65, 0.00) scale=(-1.00, 1.00, 1.00) components=Transform,SpriteRenderer sprite=Assets/Project/Art/Environments/Backgrounds/重制版地图.png bounds=Center: (-11.92, 10.65, 0.00), Extents: (8.96, 5.11, 0.10) sort=-1
+Ground/重制版地图_0 (4) active=False pos=(23.92, 10.65, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,SpriteRenderer sprite=Assets/Project/Art/Environments/Backgrounds/重制版地图.png bounds=Center: (23.92, 10.65, 0.00), Extents: (8.96, 5.11, 0.10) sort=-1
+Ground/重制版地图_0 (1) active=False pos=(23.92, 0.43, 0.00) scale=(-1.00, 1.00, 1.00) components=Transform,SpriteRenderer sprite=Assets/Project/Art/Environments/Backgrounds/重制版地图.png bounds=Center: (23.92, 0.43, 0.00), Extents: (8.96, 5.11, 0.10) sort=-1
+Ground/重制版地图_0 (2) active=False pos=(-11.92, 0.43, 0.00) scale=(-1.00, 1.00, 1.00) components=Transform,SpriteRenderer sprite=Assets/Project/Art/Environments/Backgrounds/重制版地图.png bounds=Center: (-11.92, 0.43, 0.00), Extents: (8.96, 5.11, 0.10) sort=-1
+Ground/重制版地图_0 (6) active=False pos=(-11.92, 20.87, 0.00) scale=(-1.00, 1.00, 1.00) components=Transform,SpriteRenderer sprite=Assets/Project/Art/Environments/Backgrounds/重制版地图.png bounds=Center: (-11.92, 20.87, 0.00), Extents: (8.96, 5.11, 0.10) sort=-1
+Ground/重制版地图_0 (7) active=False pos=(6.00, 20.87, 0.00) scale=(-1.00, 1.00, 1.00) components=Transform,SpriteRenderer sprite=Assets/Project/Art/Environments/Backgrounds/重制版地图.png bounds=Center: (6.00, 20.87, 0.00), Extents: (8.96, 5.11, 0.10) sort=-1
+Ground/重制版地图_0 (8) active=False pos=(23.92, 20.87, 0.00) scale=(1.00, -1.00, 1.00) components=Transform,SpriteRenderer sprite=Assets/Project/Art/Environments/Backgrounds/重制版地图.png bounds=Center: (23.92, 20.87, 0.00), Extents: (8.96, 5.11, 0.10) sort=-1
+Building active=True pos=(11.93, 2.25, 0.00) scale=(1.00, 1.00, 1.00) components=Transform
+Building/茅草屋 active=True pos=(10.80, 2.75, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,SpriteRenderer sprite=Assets/Project/Art/Environments/Buildings/茅草屋.png bounds=Center: (10.80, 2.75, 0.00), Extents: (4.10, 4.10, 0.10) sort=0
+Camera active=True pos=(6.06, 0.15, -1.00) scale=(1.00, 1.00, 1.00) components=Transform
+Camera/Virtual Camera active=True pos=(3.30, 0.00, -10.00) scale=(1.00, 1.00, 1.00) components=Transform,CinemachineVirtualCamera,CinemachineConfiner2D,ConfinerFinder
+Camera/Main Camera active=True pos=(3.30, 0.43, -10.00) scale=(1.00, 1.00, 1.00) components=Transform,Camera,AudioListener,CinemachineBrain,UniversalAdditionalCameraData
+Confiner active=True pos=(-0.94, 5.70, -10.62) scale=(1.00, 1.00, 1.00) components=Transform,PolygonCollider2D
+Confiner/GameObject active=True pos=(-0.94, 24.02, -10.62) scale=(1.00, 1.00, 1.00) components=Transform,BoxCollider2D
+Confiner/GameObject (2) active=True pos=(-0.94, -5.15, -10.62) scale=(1.00, 1.00, 1.00) components=Transform,BoxCollider2D
+Confiner/GameObject (1) active=True pos=(-21.59, 5.70, -10.62) scale=(1.00, 1.00, 1.00) components=Transform,BoxCollider2D
+Confiner/GameObject (3) active=True pos=(33.44, 5.70, -10.62) scale=(1.00, 1.00, 1.00) components=Transform,BoxCollider2D
+EventSystem active=True pos=(6.06, 0.15, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,EventSystem,StandaloneInputModule
+NPC active=True pos=(1.22, 0.08, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,SpriteRenderer,CapsuleCollider2D,BoxCollider2D,NPCInteraction sprite=Assets/Project/Art/Characters/NPCs/baishen.png bounds=Center: (1.22, 0.08, 0.00), Extents: (1.50, 1.50, 0.10) sort=0
+玩家 active=True pos=(3.30, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,SpriteRenderer,PlayerMovement,Animator,Rigidbody2D,CapsuleCollider2D,PlayerTaskManager sprite=Assets/Project/Art/Characters/Player/待机/合成 10_00018-no-bg.png bounds=Center: (3.30, 0.00, 0.00), Extents: (1.44, 1.44, 0.10) sort=10
+切菜 active=True pos=(7.30, -2.11, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,SpriteRenderer,Animator,BoxCollider2D,PolygonCollider2D,NPCInteraction sprite=Assets/Project/Art/Characters/Actions/切菜/合成 23_00000.png bounds=Center: (7.30, -2.11, 0.00), Extents: (3.20, 2.40, 0.10) sort=0
+耙子 active=True pos=(-1.00, 6.50, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,SpriteRenderer sprite=Assets/Project/Art/Props/Tools/耙子/耙子.png bounds=Center: (-1.00, 6.50, 0.00), Extents: (2.98, 1.54, 0.10) sort=5
+whitecow active=True pos=(-8.00, 5.00, 0.00) scale=(-0.80, 0.80, 1.00) components=Transform,SpriteRenderer,Animator,Rigidbody2D,CircleCollider2D,CowEscape2D sprite=Assets/Project/Art/Props/Animals/白牛/whitecow (1).png bounds=Center: (-8.00, 5.00, 0.00), Extents: (1.71, 0.96, 0.10) sort=5
+whitecow/ViewRange active=True pos=(-8.00, 5.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,CircleCollider2D
+whitecow/SafeRange active=True pos=(-8.00, 5.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,CircleCollider2D
+whitecow/colider active=True pos=(-8.00, 5.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,CircleCollider2D
+GameObject active=True pos=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform
+whitecow (1) active=False pos=(-12.07, 2.74, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,SpriteRenderer,Animator,CapsuleCollider2D sprite=Assets/Project/Art/Props/Animals/白牛/whitecow (1).png bounds=Center: (-12.07, 2.74, 0.00), Extents: (2.13, 1.20, 0.10) sort=5
+whitecow (2) active=False pos=(-14.62, 5.15, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,SpriteRenderer,Animator,CapsuleCollider2D sprite=Assets/Project/Art/Props/Animals/白牛/whitecow (1).png bounds=Center: (-14.62, 5.15, 0.00), Extents: (2.13, 1.20, 0.10) sort=5
+blackcow active=False pos=(-3.41, 6.27, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,SpriteRenderer,Animator sprite=Assets/Project/Art/Props/Animals/黑牛/1_00033.png bounds=Center: (-3.41, 6.27, 0.00), Extents: (2.13, 1.20, 0.10) sort=5
+耕种 active=True pos=(2.09, 3.39, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,SpriteRenderer,Animator sprite=Assets/Project/Art/Characters/Actions/耕种/耕种_00000.png bounds=Center: (2.09, 3.39, 0.00), Extents: (3.20, 1.80, 0.10) sort=0
+DialogueCanvas active=False pos=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=RectTransform,Canvas,CanvasScaler,GraphicRaycaster,DialogueUI
+DialogueCanvas/TaskInfoPanel active=True pos=(124.76, -28.69, 0.00) scale=(1.00, 1.00, 1.00) components=RectTransform,CanvasRenderer,Image,TaskInfoPanel
+DialogueCanvas/CongratulationPanel active=False pos=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=RectTransform,CanvasRenderer,Image
+DialogueCanvas/DialoguePanel active=False pos=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=RectTransform,CanvasRenderer,Image
+DialogueCanvas/ChoicePanel active=False pos=(0.00, -400.00, 0.00) scale=(1.00, 1.00, 1.00) components=RectTransform,CanvasRenderer,Image
+DialogueCanvas/InteractionHint  active=False pos=(0.00, -50.00, 0.00) scale=(1.00, 1.00, 1.00) components=RectTransform
+DialogueManager active=True pos=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,DialogueManager
+FarmingGameplay active=True pos=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform
+FarmingGameplay/BlackCowPuzzle active=True pos=(-2.00, 5.00, 0.00) scale=(-0.80, 0.80, 1.00) components=Transform,SpriteRenderer,Animator,Rigidbody2D,CircleCollider2D,CowEscape2D sprite=Assets/Project/Art/Props/Animals/白牛/whitecow (1).png bounds=Center: (-2.00, 5.00, 0.00), Extents: (1.71, 0.96, 0.10) sort=5
+FarmingGameplay/SharedCowPen active=True pos=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,CowPen,CowPen
+FarmingGameplay/遗落的耕具 active=True pos=(-1.00, 5.50, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,MeshRenderer,TextMesh
+CAM size=5 lens=1.777778
+PREFAB Assets/Project/Prefabs/Level2.prefab
+ active=True pos=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,LevelRuntimeBootstrap,CookingPuzzle
+Camera active=True pos=(6.06, 0.15, -1.00) scale=(1.00, 1.00, 1.00) components=Transform
+Camera/Virtual Camera active=True pos=(-12.00, -4.00, -10.00) scale=(1.00, 1.00, 1.00) components=Transform,CinemachineVirtualCamera,CinemachineConfiner2D
+Camera/Main Camera active=True pos=(-11.33, -2.00, -10.00) scale=(1.00, 1.00, 1.00) components=Transform,Camera,AudioListener,CinemachineBrain,UniversalAdditionalCameraData
+Confiner active=True pos=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,PolygonCollider2D
+Confiner/宅院边界0 active=True pos=(0.00, -7.50, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,BoxCollider2D
+Confiner/宅院边界1 active=True pos=(0.00, 7.50, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,BoxCollider2D
+Confiner/宅院边界2 active=True pos=(-21.50, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,BoxCollider2D
+Confiner/宅院边界3 active=True pos=(21.50, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,BoxCollider2D
+EventSystem active=True pos=(6.06, 0.15, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,EventSystem,StandaloneInputModule
+庖长 active=True pos=(-12.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,SpriteRenderer,CapsuleCollider2D,BoxCollider2D,NPCInteraction sprite=Assets/Project/Art/Characters/NPCs/baishen.png bounds=Center: (-12.00, 0.00, 0.00), Extents: (1.50, 1.50, 0.10) sort=0
+玩家 active=True pos=(-12.00, -4.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,SpriteRenderer,PlayerMovement,Animator,Rigidbody2D,CapsuleCollider2D,PlayerTaskManager sprite=Assets/Project/Art/Characters/Player/待机/合成 10_00018-no-bg.png bounds=Center: (-12.00, -4.00, 0.00), Extents: (1.44, 1.44, 0.10) sort=10
+宴饮宾客 active=True pos=(4.67, 0.70, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,SpriteRenderer,BoxCollider2D,PolygonCollider2D,NPCInteraction sprite=Assets/Project/Art/Characters/Actions/切菜/合成 23_00000.png bounds=Center: (4.67, 0.70, 0.00), Extents: (3.20, 2.40, 0.10) sort=0
+DialogueCanvas active=True pos=(0.00, 0.00, 0.00) scale=(0.00, 0.00, 0.00) components=RectTransform,Canvas,CanvasScaler,GraphicRaycaster,DialogueUI
+DialogueCanvas/TaskInfoPanel active=True pos=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=RectTransform,CanvasRenderer,Image,TaskInfoPanel
+DialogueCanvas/CongratulationPanel active=False pos=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=RectTransform,CanvasRenderer,Image
+DialogueCanvas/DialoguePanel active=False pos=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=RectTransform,CanvasRenderer,Image
+DialogueCanvas/ChoicePanel active=False pos=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=RectTransform,CanvasRenderer,Image
+DialogueCanvas/InteractionHint  active=False pos=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=RectTransform
+DialogueManager active=True pos=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,DialogueManager
+CookingEnvironment active=True pos=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform
+CookingEnvironment/宅院砖面底图 active=True pos=(0.00, 0.00, 0.00) scale=(5.50, 4.03, 1.00) components=Transform,SpriteRenderer sprite=Assets/Project/Art/Environments/Backgrounds/pictorial-brick-clean-seamless.png bounds=Center: (0.00, 0.00, 0.00), Extents: (24.00, 10.00, 0.10) sort=-20
+CookingEnvironment/庖厨作坊地面 active=True pos=(-14.00, 0.00, 0.00) scale=(1.61, 3.23, 1.00) components=Transform,SpriteRenderer sprite=Assets/Project/Art/Environments/Backgrounds/pictorial-brick-clean-seamless.png bounds=Center: (-14.00, 0.00, 0.00), Extents: (7.00, 8.00, 0.10) sort=-15
+CookingEnvironment/庖厨作坊墙面 active=True pos=(-14.00, 5.80, 0.00) scale=(7.14, 1.67, 1.00) components=Transform,SpriteRenderer sprite=Assets/Project/Data/Level2/Panel.png bounds=Center: (-14.00, 5.80, 0.00), Extents: (6.85, 1.60, 0.10) sort=-13
+CookingEnvironment/庖厨作坊 active=True pos=(-14.00, 5.50, 0.00) scale=(0.09, 0.09, 0.09) components=Transform,MeshRenderer,TextMesh
+CookingEnvironment/传菜廊道地面 active=True pos=(0.00, 0.00, 0.00) scale=(1.61, 3.23, 1.00) components=Transform,SpriteRenderer sprite=Assets/Project/Art/Environments/Backgrounds/pictorial-brick-clean-seamless.png bounds=Center: (0.00, 0.00, 0.00), Extents: (7.00, 8.00, 0.10) sort=-15
+CookingEnvironment/传菜廊道墙面 active=True pos=(0.00, 5.80, 0.00) scale=(7.14, 1.67, 1.00) components=Transform,SpriteRenderer sprite=Assets/Project/Data/Level2/Panel.png bounds=Center: (0.00, 5.80, 0.00), Extents: (6.85, 1.60, 0.10) sort=-13
+CookingEnvironment/传菜廊道 active=True pos=(0.00, 5.50, 0.00) scale=(0.09, 0.09, 0.09) components=Transform,MeshRenderer,TextMesh
+CookingEnvironment/主宴厅堂地面 active=True pos=(14.00, 0.00, 0.00) scale=(1.61, 3.23, 1.00) components=Transform,SpriteRenderer sprite=Assets/Project/Art/Environments/Backgrounds/pictorial-brick-clean-seamless.png bounds=Center: (14.00, 0.00, 0.00), Extents: (7.00, 8.00, 0.10) sort=-15
+CookingEnvironment/主宴厅堂墙面 active=True pos=(14.00, 5.80, 0.00) scale=(7.14, 1.67, 1.00) components=Transform,SpriteRenderer sprite=Assets/Project/Data/Level2/Panel.png bounds=Center: (14.00, 5.80, 0.00), Extents: (6.85, 1.60, 0.10) sort=-13
+CookingEnvironment/主宴厅堂 active=True pos=(14.00, 5.50, 0.00) scale=(0.09, 0.09, 0.09) components=Transform,MeshRenderer,TextMesh
+CookingEnvironment/后厨储物案 active=True pos=(-17.00, 2.00, 0.00) scale=(2.08, 0.52, 1.00) components=Transform,SpriteRenderer sprite=Assets/Project/Data/Level2/Panel.png bounds=Center: (-17.00, 2.00, 0.00), Extents: (2.00, 0.50, 0.10) sort=-2
+CookingEnvironment/厅堂案几 active=True pos=(12.00, -2.00, 0.00) scale=(3.13, 0.78, 1.00) components=Transform,SpriteRenderer sprite=Assets/Project/Data/Level2/Panel.png bounds=Center: (12.00, -2.00, 0.00), Extents: (3.00, 0.75, 0.10) sort=-2
+CookingEnvironment/置酒案     食案     炉台 active=True pos=(12.00, -1.50, 0.00) scale=(0.05, 0.05, 0.05) components=Transform,MeshRenderer,TextMesh
+CookingEnvironment/陶耳杯 active=True pos=(-17.00, -2.00, 0.00) scale=(0.89, 0.73, 1.00) components=Transform,SpriteRenderer sprite=Assets/Project/Data/Level2/Cup.png bounds=Center: (-17.00, -2.00, 0.00), Extents: (0.85, 0.70, 0.10) sort=2
+CookingEnvironment/食盘 active=True pos=(-4.00, 1.00, 0.00) scale=(0.89, 0.73, 1.00) components=Transform,SpriteRenderer sprite=Assets/Project/Data/Level2/Plate.png bounds=Center: (-4.00, 1.00, 0.00), Extents: (0.85, 0.70, 0.10) sort=2
+CookingEnvironment/烤肉炉 active=True pos=(2.00, -3.00, 0.00) scale=(0.89, 0.73, 1.00) components=Transform,SpriteRenderer sprite=Assets/Project/Data/Level2/Oven.png bounds=Center: (2.00, -3.00, 0.00), Extents: (0.85, 0.70, 0.10) sort=2
+CookingEnvironment/灶台 active=True pos=(-8.00, 3.00, 0.00) scale=(1.67, 1.25, 1.00) components=Transform,SpriteRenderer sprite=Assets/Project/Data/Level2/Oven.png bounds=Center: (-8.00, 3.00, 0.00), Extents: (1.60, 1.20, 0.10) sort=0
+CookingEnvironment/炉口杂物0 active=True pos=(-8.70, 2.60, 0.00) scale=(0.36, 0.26, 1.00) components=Transform,SpriteRenderer sprite=Assets/Project/Data/Level2/Panel.png bounds=Center: (-8.70, 2.60, 0.00), Extents: (0.35, 0.25, 0.10) sort=3
+CookingEnvironment/炉口杂物1 active=True pos=(-8.05, 2.60, 0.00) scale=(0.36, 0.26, 1.00) components=Transform,SpriteRenderer sprite=Assets/Project/Data/Level2/Panel.png bounds=Center: (-8.05, 2.60, 0.00), Extents: (0.35, 0.25, 0.10) sort=3
+CookingEnvironment/炉口杂物2 active=True pos=(-7.40, 2.60, 0.00) scale=(0.36, 0.26, 1.00) components=Transform,SpriteRenderer sprite=Assets/Project/Data/Level2/Panel.png bounds=Center: (-7.40, 2.60, 0.00), Extents: (0.35, 0.25, 0.10) sort=3
+CookingEnvironment/宴席配对交互点 active=True pos=(12.00, 1.50, 0.00) scale=(1.04, 0.52, 1.00) components=Transform,SpriteRenderer sprite=Assets/Project/Data/Level2/Plate.png bounds=Center: (12.00, 1.50, 0.00), Extents: (1.00, 0.50, 0.10) sort=1
+CAM size=6 lens=1.777778

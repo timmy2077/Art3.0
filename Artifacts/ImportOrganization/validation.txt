@@ -1,0 +1,6 @@
+PASS 已导入 Assets/Project/Documentation/Design/尘封砖语游戏策划.docx (DefaultAsset)
+PASS 已导入 Assets/Project/Art/Environments/Buildings/饭店.jpg (Texture2D)
+PASS 已导入 Assets/Project/Video/扬场图入场.mp4 (VideoClip)
+PASS 已导入 Assets/Project/Editor/Tools/GameViewScreenshotTool.cs (MonoScript)
+PASS 第一、二关视频入口仍引用相同 VideoClip，关卡预制体引用完整。
+PASS 第二关预制体饭店贴图引用保持完整。

@@ -1,0 +1,90 @@
+ pos=(0.00, 0.00, 0.00) active=True components=Transform,FarmingPuzzle,LevelRuntimeBootstrap
+Ground pos=(-11.72, 11.68, 0.00) active=True components=Transform
+Ground/10002 pos=(5.96, 10.36, 0.00) active=True components=Transform,SpriteRenderer
+Ground/地图 pos=(6.13, 0.31, 0.00) active=False components=Transform,SpriteRenderer
+Ground/地图 (1) pos=(23.95, 0.31, 0.00) active=False components=Transform,SpriteRenderer
+Ground/重制版地图_0 pos=(6.00, 0.43, 0.00) active=False components=Transform,SpriteRenderer
+Ground/重制版地图_0 (3) pos=(6.00, 10.65, 0.00) active=False components=Transform,SpriteRenderer
+Ground/重制版地图_0 (5) pos=(-11.92, 10.65, 0.00) active=False components=Transform,SpriteRenderer
+Ground/重制版地图_0 (4) pos=(23.92, 10.65, 0.00) active=False components=Transform,SpriteRenderer
+Ground/重制版地图_0 (1) pos=(23.92, 0.43, 0.00) active=False components=Transform,SpriteRenderer
+Ground/重制版地图_0 (2) pos=(-11.92, 0.43, 0.00) active=False components=Transform,SpriteRenderer
+Ground/重制版地图_0 (6) pos=(-11.92, 20.87, 0.00) active=False components=Transform,SpriteRenderer
+Ground/重制版地图_0 (7) pos=(6.00, 20.87, 0.00) active=False components=Transform,SpriteRenderer
+Ground/重制版地图_0 (8) pos=(23.92, 20.87, 0.00) active=False components=Transform,SpriteRenderer
+Building pos=(11.93, 2.25, 0.00) active=True components=Transform
+Building/茅草屋 pos=(10.80, 2.75, 0.00) active=True components=Transform,SpriteRenderer
+Camera pos=(6.06, 0.15, -1.00) active=True components=Transform
+Camera/Virtual Camera pos=(3.30, 0.00, -10.00) active=True components=Transform,CinemachineVirtualCamera,CinemachineConfiner2D,ConfinerFinder
+Camera/Virtual Camera/cm pos=(3.30, 0.00, -10.00) active=True components=Transform,CinemachinePipeline,CinemachineComposer,CinemachineFramingTransposer
+Camera/Main Camera pos=(3.30, 0.43, -10.00) active=True components=Transform,Camera,AudioListener,CinemachineBrain,UniversalAdditionalCameraData
+Confiner pos=(-0.94, 5.70, -10.62) active=True components=Transform,PolygonCollider2D
+Confiner/GameObject pos=(-0.94, 24.02, -10.62) active=True components=Transform,BoxCollider2D
+Confiner/GameObject (2) pos=(-0.94, -5.15, -10.62) active=True components=Transform,BoxCollider2D
+Confiner/GameObject (1) pos=(-21.59, 5.70, -10.62) active=True components=Transform,BoxCollider2D
+Confiner/GameObject (3) pos=(33.44, 5.70, -10.62) active=True components=Transform,BoxCollider2D
+EventSystem pos=(6.06, 0.15, 0.00) active=True components=Transform,EventSystem,StandaloneInputModule
+NPC pos=(1.22, 0.08, 0.00) active=True components=Transform,SpriteRenderer,CapsuleCollider2D,BoxCollider2D,NPCInteraction
+玩家 pos=(3.30, 0.00, 0.00) active=True components=Transform,SpriteRenderer,PlayerMovement,Animator,Rigidbody2D,CapsuleCollider2D,PlayerTaskManager
+切菜 pos=(7.30, -2.11, 0.00) active=True components=Transform,SpriteRenderer,Animator,BoxCollider2D,PolygonCollider2D,NPCInteraction
+耙子 pos=(-1.00, 6.50, 0.00) active=True components=Transform,SpriteRenderer
+whitecow pos=(-8.00, 5.00, 0.00) active=True components=Transform,SpriteRenderer,Animator,Rigidbody2D,CircleCollider2D,CowEscape2D
+whitecow/ViewRange pos=(-8.00, 5.00, 0.00) active=True components=Transform,CircleCollider2D
+whitecow/SafeRange pos=(-8.00, 5.00, 0.00) active=True components=Transform,CircleCollider2D
+whitecow/colider pos=(-8.00, 5.00, 0.00) active=True components=Transform,CircleCollider2D
+GameObject pos=(0.00, 0.00, 0.00) active=True components=Transform
+whitecow (1) pos=(-12.07, 2.74, 0.00) active=False components=Transform,SpriteRenderer,Animator,CapsuleCollider2D
+whitecow (2) pos=(-14.62, 5.15, 0.00) active=False components=Transform,SpriteRenderer,Animator,CapsuleCollider2D
+blackcow pos=(-3.41, 6.27, 0.00) active=False components=Transform,SpriteRenderer,Animator
+耕种 pos=(2.09, 3.39, 0.00) active=True components=Transform,SpriteRenderer,Animator
+DialogueCanvas pos=(0.00, 0.00, 0.00) active=False components=RectTransform,Canvas,CanvasScaler,GraphicRaycaster,DialogueUI
+DialogueCanvas/TaskInfoPanel pos=(124.76, -28.69, 0.00) active=True components=RectTransform,CanvasRenderer,Image,TaskInfoPanel
+DialogueCanvas/TaskInfoPanel/paenl pos=(138.77, -28.69, 0.00) active=True components=RectTransform,VerticalLayoutGroup
+DialogueCanvas/CongratulationPanel pos=(0.00, 0.00, 0.00) active=False components=RectTransform,CanvasRenderer,Image
+DialogueCanvas/CongratulationPanel/Image pos=(0.00, 0.00, 0.00) active=True components=RectTransform,CanvasRenderer,Image
+DialogueCanvas/DialoguePanel pos=(0.00, 0.00, 0.00) active=False components=RectTransform,CanvasRenderer,Image
+DialogueCanvas/DialoguePanel/DialogueUI pos=(0.00, 0.00, 0.00) active=True components=RectTransform
+DialogueCanvas/ChoicePanel pos=(0.00, -400.00, 0.00) active=False components=RectTransform,CanvasRenderer,Image
+DialogueCanvas/ChoicePanel/TaskButton pos=(-189.00, 102.00, 0.00) active=True components=RectTransform,CanvasRenderer,Image,Button
+DialogueCanvas/ChoicePanel/ScienceButton pos=(-470.00, 102.00, 0.00) active=True components=RectTransform,CanvasRenderer,Image,Button
+DialogueCanvas/InteractionHint  pos=(0.00, -50.00, 0.00) active=False components=RectTransform
+DialogueCanvas/InteractionHint /InteractionHintText pos=(0.00, -124.00, 0.00) active=True components=RectTransform,CanvasRenderer,Text
+DialogueManager pos=(0.00, 0.00, 0.00) active=True components=Transform,DialogueManager
+FarmingGameplay pos=(0.00, 0.00, 0.00) active=True components=Transform
+FarmingGameplay/BlackCowPuzzle pos=(-2.00, 5.00, 0.00) active=True components=Transform,SpriteRenderer,Animator,Rigidbody2D,CircleCollider2D,CowEscape2D
+FarmingGameplay/BlackCowPuzzle/ViewRange pos=(-2.00, 5.00, 0.00) active=True components=Transform,CircleCollider2D
+FarmingGameplay/BlackCowPuzzle/SafeRange pos=(-2.00, 5.00, 0.00) active=True components=Transform,CircleCollider2D
+FarmingGameplay/BlackCowPuzzle/colider pos=(-2.00, 5.00, 0.00) active=True components=Transform,CircleCollider2D
+FarmingGameplay/SharedCowPen pos=(0.00, 0.00, 0.00) active=True components=Transform,CowPen,CowPen
+FarmingGameplay/SharedCowPen/PenInterior pos=(-5.00, 13.00, 0.00) active=True components=Transform,BoxCollider2D
+FarmingGameplay/SharedCowPen/WestFence pos=(-8.00, 17.00, 0.00) active=True components=Transform,BoxCollider2D
+FarmingGameplay/SharedCowPen/NorthFence pos=(-2.00, 17.00, 0.00) active=True components=Transform,BoxCollider2D
+FarmingGameplay/SharedCowPen/EastFence pos=(-11.00, 13.00, 0.00) active=True components=Transform,BoxCollider2D
+FarmingGameplay/SharedCowPen/FrontLeft pos=(-4.34, 11.46, 0.00) active=True components=Transform,BoxCollider2D
+FarmingGameplay/SharedCowPen/FrontRight pos=(-4.34, 15.19, 0.00) active=True components=Transform,BoxCollider2D
+FarmingGameplay/SharedCowPen/牛栏 pos=(-7.60, 17.30, 0.00) active=True components=Transform,MeshRenderer,TextMesh
+FarmingGameplay/遗落的耕具 pos=(-1.00, 5.50, 0.00) active=True components=Transform,MeshRenderer,TextMesh
+BUTTON BackButton target=BackButton (SwitchSceneOnFrame) method=OnAnimationFrame
+SCRIPT 耕种图动画 => HideAndInstantiate
+SCRIPT 刨厨图动画 => HideAndInstantiate
+SCRIPT 驿使图动画 => HideAndInstantiate
+SCRIPT 四神图动画 => HideAndInstantiate
+SCRIPT 墓主图动画 => HideAndInstantiate
+SCRIPT 砖块UI/砖块背景 => UIPageSwitch
+SCRIPT 砖块UI/砖块背景/砖块展示-耕种图 => LevelUnlock
+SCRIPT 砖块UI/砖块背景/砖块展示-耕种图/UnLocked => UIHoverShow
+SCRIPT 砖块UI/砖块背景/砖块展示-刨厨图 => LevelUnlock
+SCRIPT 砖块UI/砖块背景/砖块展示-刨厨图/UnLocked => UIHoverShow
+SCRIPT 砖块UI/砖块背景/砖块展示-刨厨图/Locked => ShowObjectOnFrame
+SCRIPT 砖块UI/砖块背景/砖块展示-驿使图 => LevelUnlock
+SCRIPT 砖块UI/砖块背景/砖块展示-驿使图/UnLocked => UIHoverShow
+SCRIPT 砖块UI/砖块背景/砖块展示-驿使图/Locked => ShowObjectOnFrame
+SCRIPT 砖块UI/砖块背景/砖块展示-四神图 => LevelUnlock
+SCRIPT 砖块UI/砖块背景/砖块展示-四神图/UnLocked => UIHoverShow
+SCRIPT 砖块UI/砖块背景/砖块展示-四神图/Locked => ShowObjectOnFrame
+SCRIPT 砖块UI/砖块背景/砖块展示-墓主图 => LevelUnlock
+SCRIPT 砖块UI/砖块背景/砖块展示-墓主图/UnLocked => UIHoverShow
+SCRIPT 砖块UI/砖块背景/砖块展示-墓主图/Locked => ShowObjectOnFrame
+SCRIPT BackButton => SwitchSceneOnFrame
+SCRIPT  => DataSystem
+VIDEO 1920x1080 fps=25 seconds=1.88 audio=1

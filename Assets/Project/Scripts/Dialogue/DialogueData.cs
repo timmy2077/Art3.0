@@ -25,6 +25,8 @@ public class DialogueData : ScriptableObject
 
     [Tooltip("勾选 = 核心NPC（有任务线/科普线双选项）\n取消 = 次要NPC（纯科普，无选项）")]
     public bool isCoreNPC = true;
+    [Tooltip("科普线播放完直接结束，不追加任务选项（关卡二使用）。")]
+    public bool endAfterScience;
 
     // ------------------------------------------------------------------
     //  核心NPC 对话内容

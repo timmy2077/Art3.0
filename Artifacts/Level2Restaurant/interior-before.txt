@@ -1,0 +1,22 @@
+|(0, 0, 0)|(0, 0, 0, 1)|(1, 1, 1)|True
+宅院砖面底图|(0, 0, 0)|(0, 0, 0, 1)|(5.504587, 4.032258, 1)|True|Assets/Project/Art/Environments/Backgrounds/pictorial-brick-clean-seamless.png|RGBA(0.79, 0.65, 0.48, 1)|0|-20
+庖厨作坊地面|(-14, 0, 0)|(0, 0, 0, 1)|(1.60550451, 3.22580647, 1)|True|Assets/Project/Art/Environments/Backgrounds/pictorial-brick-clean-seamless.png|RGBA(0.79, 0.65, 0.48, 1)|0|-15
+庖厨作坊墙面|(-14, 5.8, 0)|(0, 0, 0, 1)|(7.13541651, 1.66666675, 1)|True|Assets/Project/Data/Level2/Panel.png|RGBA(0.39, 0.24, 0.18, 1)|0|-13
+庖厨作坊|(-14, 5.5, 0)|(0, 0, 0, 1)|(0.09, 0.09, 0.09)|True
+传菜廊道地面|(0, 0, 0)|(0, 0, 0, 1)|(1.60550451, 3.22580647, 1)|True|Assets/Project/Art/Environments/Backgrounds/pictorial-brick-clean-seamless.png|RGBA(0.79, 0.65, 0.48, 1)|0|-15
+传菜廊道墙面|(0, 5.8, 0)|(0, 0, 0, 1)|(7.13541651, 1.66666675, 1)|True|Assets/Project/Data/Level2/Panel.png|RGBA(0.39, 0.24, 0.18, 1)|0|-13
+传菜廊道|(0, 5.5, 0)|(0, 0, 0, 1)|(0.09, 0.09, 0.09)|True
+主宴厅堂地面|(14, 0, 0)|(0, 0, 0, 1)|(1.60550451, 3.22580647, 1)|True|Assets/Project/Art/Environments/Backgrounds/pictorial-brick-clean-seamless.png|RGBA(0.79, 0.65, 0.48, 1)|0|-15
+主宴厅堂墙面|(14, 5.8, 0)|(0, 0, 0, 1)|(7.13541651, 1.66666675, 1)|True|Assets/Project/Data/Level2/Panel.png|RGBA(0.39, 0.24, 0.18, 1)|0|-13
+主宴厅堂|(14, 5.5, 0)|(0, 0, 0, 1)|(0.09, 0.09, 0.09)|True
+后厨储物案|(-17, 2, 0)|(0, 0, 0, 1)|(2.08333349, 0.5208334, 1)|True|Assets/Project/Data/Level2/Panel.png|RGBA(0.35, 0.22, 0.16, 1)|0|-2
+厅堂案几|(12, -2, 0)|(0, 0, 0, 1)|(3.125, 0.78125, 1)|True|Assets/Project/Data/Level2/Panel.png|RGBA(0.35, 0.22, 0.16, 1)|0|-2
+置酒案     食案     炉台|(12, -1.5, 0)|(0, 0, 0, 1)|(0.045, 0.045, 0.045)|True
+陶耳杯|(-17, -2, 0)|(0, 0, 0, 1)|(0.8854167, 0.7291667, 1)|True|Assets/Project/Data/Level2/Cup.png|RGBA(1, 1, 1, 1)|0|2
+食盘|(-4, 1, 0)|(0, 0, 0, 1)|(0.8854167, 0.7291667, 1)|True|Assets/Project/Data/Level2/Plate.png|RGBA(1, 1, 1, 1)|0|2
+烤肉炉|(2, -3, 0)|(0, 0, 0, 1)|(0.8854167, 0.7291667, 1)|True|Assets/Project/Data/Level2/Oven.png|RGBA(1, 1, 1, 1)|0|2
+灶台|(-8, 3, 0)|(0, 0, 0, 1)|(1.66666675, 1.25000012, 1)|True|Assets/Project/Data/Level2/Oven.png|RGBA(1, 1, 1, 1)|0|0
+炉口杂物0|(-8.7, 2.6, 0)|(0, 0, 0, 1)|(0.364583343, 0.2604167, 1)|True|Assets/Project/Data/Level2/Panel.png|RGBA(0.21, 0.17, 0.13, 1)|0|3
+炉口杂物1|(-8.05, 2.6, 0)|(0, 0, 0, 1)|(0.364583343, 0.2604167, 1)|True|Assets/Project/Data/Level2/Panel.png|RGBA(0.21, 0.17, 0.13, 1)|0|3
+炉口杂物2|(-7.39999962, 2.6, 0)|(0, 0, 0, 1)|(0.364583343, 0.2604167, 1)|True|Assets/Project/Data/Level2/Panel.png|RGBA(0.21, 0.17, 0.13, 1)|0|3
+宴席配对交互点|(12, 1.5, 0)|(0, 0, 0, 1)|(1.04166675, 0.5208334, 1)|True|Assets/Project/Data/Level2/Plate.png|RGBA(1, 1, 1, 1)|0|1

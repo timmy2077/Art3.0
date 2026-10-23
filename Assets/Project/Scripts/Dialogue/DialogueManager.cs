@@ -93,6 +93,7 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
+        if (DebugUnlockPanel.BlocksGameplayInput) return;
         if (state == FlowState.None) return;
 
         // 选项面板显示时，不响应继续键
@@ -142,7 +143,6 @@ public class DialogueManager : MonoBehaviour
         }
 
         currentNPC = npc;
-        DialogueData data = npc.dialogueData;
         LevelBase level = npc.GetComponentInParent<LevelBase>();
 
         // 先做所有可能失败的配置，再显示面板，避免面板打开后停在占位文字（"NPC/ok"）上。
@@ -151,6 +151,7 @@ public class DialogueManager : MonoBehaviour
             level.OnDialogueStarted(npc);
             SafeConfigure(level);
         }
+        DialogueData data = npc.dialogueData;
 
         if (!data.isCoreNPC)
         {
@@ -299,7 +300,7 @@ public class DialogueManager : MonoBehaviour
             case FlowState.ScienceLine:
                 // 科普线完毕 → 标记完成
                 currentNPC.IsScienceCompleted = true;
-                if (!IsCurrentTaskAccepted())
+                if (!IsCurrentTaskAccepted() && !currentNPC.dialogueData.endAfterScience)
                 {
                     // 任务未完成 → 弹出任务选项
                     state = FlowState.AfterScienceChoice;
@@ -340,6 +341,7 @@ public class DialogueManager : MonoBehaviour
         dialogueUI.HidePanel();
 
         currentNPC?.OnDialogueEnded();
+        if (currentNPC != null) currentNPC.GetComponentInParent<LevelBase>()?.OnDialogueFinished(currentNPC);
         currentNPC = null;
 
         OnDialogueEnd?.Invoke();

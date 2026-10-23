@@ -30,6 +30,10 @@ public abstract class LevelBase : MonoBehaviour
     public string CurrentHint { get; protected set; }
     public int[] PieceOrder => (int[])pieceOrder.Clone();
     public bool Accepted => tasks.CurrentState != PlayerTaskManager.QuestState.NotAccepted;
+    public virtual bool IsInteractionBlocked => ModalOpen;
+    public virtual bool AllowNPCDialogue(NPCInteraction npc) => !IsInteractionBlocked &&
+        !(npc.dialogueData.isCoreNPC && tasks.CurrentState >= PlayerTaskManager.QuestState.ObjectivesCompleted);
+    public virtual void OnDialogueFinished(NPCInteraction npc) { }
 
     // ==================== 子类需实现的抽象成员 ====================
     /// <summary>关卡 ID，用于从 Resources/LevelText/{id}.json 加载文字</summary>
@@ -100,6 +104,11 @@ public abstract class LevelBase : MonoBehaviour
 
     /// <summary>对话开始时调用：清掉打字机提示，避免与对话文字冲突。子类可覆写添加本关逻辑。</summary>
     public virtual void OnDialogueStarted(NPCInteraction npc)
+    {
+        ClearNotices();
+    }
+
+    protected void ClearNotices()
     {
         activeNotice = "";
         noticeUntil = 0;
@@ -190,6 +199,7 @@ public abstract class LevelBase : MonoBehaviour
     // ==================== 每帧更新 ====================
     private void Update()
     {
+        if (DebugUnlockPanel.BlocksGameplayInput) return;
         if (ModalOpen)
         {
             noticeUntil += Time.unscaledDeltaTime;

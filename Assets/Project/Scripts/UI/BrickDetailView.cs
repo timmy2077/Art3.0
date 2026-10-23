@@ -70,6 +70,7 @@ public class BrickDetailView : MonoBehaviour
 
     private void Update()
     {
+        if (DebugUnlockPanel.BlocksGameplayInput) return;
         // 只有详情页处理返回键，避免同一帧连关两层。
         if (!Input.GetKeyDown(KeyCode.Escape)) return;
         if (imageViewer.gameObject.activeSelf) imageViewer.Close();

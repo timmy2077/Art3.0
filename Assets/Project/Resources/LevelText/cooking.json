@@ -1,0 +1,28 @@
+{
+    "opening": [
+        {
+            "text": "庖厨宴饮 · 食礼篇\n靠近饭店后按 E 进入，靠近庖长按 E 交谈。\n手机使用右下角「交互」。",
+            "seconds": 5.0
+        }
+    ],
+    "accepted": "先在庖厨作坊与传菜廊道寻找陶耳杯、食盘和烤肉炉。",
+    "puzzle": {
+        "storyWithPiece": "食器已归位，灶台重新通畅。\n交换碎片，复原这幅记录庖厨劳作的砖画。",
+        "storyWithoutPiece": "食器散落、炉道堵塞，砖上的庖厨生活还不完整。\n完成备餐与器物配对，再向庖长领取缺失的砖画碎片。",
+        "hintLocked": "先完成庖长的委托，领取缺失碎片。",
+        "hintUnlocked": "依次选择两块碎片，交换位置。",
+        "hintSelected": "请选择另一块碎片交换。",
+        "entrySolved": "庖厨图 · 已修复",
+        "entryUnlocked": "修复庖厨图",
+        "entryMissing": "庖厨图 · 缺片",
+        "title": "复原庖厨图",
+        "victoryTitle": "庖厨图 · 修复完成",
+        "victoryKnowledge": "从庖厨到厅堂，器物与劳作共同留下千年前的生活图景。",
+        "missingLabel": "缺片",
+        "continueButton": "收录砖画 · 返回选关",
+        "returnButton": "返回宅院 Esc",
+        "farmerName": "",
+        "toolName": "",
+        "puzzleButton": "拼图"
+    }
+}

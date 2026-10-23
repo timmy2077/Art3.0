@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     public static PlayerMovement instance;
     public bool InputLocked { get; set; }
+    public Vector2 TouchMove { get; set; }
 
 
     private void Awake()
@@ -32,9 +33,10 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        bool locked = InputLocked || (DialogueManager.Instance != null && DialogueManager.Instance.IsDialogueActive);
+        bool locked = DebugUnlockPanel.BlocksGameplayInput || InputLocked || (DialogueManager.Instance != null && DialogueManager.Instance.IsDialogueActive);
         float horizontal = locked ? 0f : Input.GetAxisRaw("Horizontal");
         float vertical = locked ? 0f : Input.GetAxisRaw("Vertical");
+        if (!locked && TouchMove.sqrMagnitude > 0) { horizontal = TouchMove.x; vertical = TouchMove.y; }
         Vector2 inputDirection = new Vector2(horizontal, vertical);
         if (inputDirection.magnitude > 1)
         {
@@ -74,6 +76,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private int animParamState = 0; // 0=未检查 1=参数齐全 2=缺参数或无控制器
+    private void OnDisable() { TouchMove = Vector2.zero; }
+    private void OnApplicationPause(bool paused) { if (paused) TouchMove = Vector2.zero; }
 
     private void UpdateAnimator(float horizontal, float vertical, bool isRunning)
     {

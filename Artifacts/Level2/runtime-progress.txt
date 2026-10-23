@@ -1,0 +1,62 @@
+PASS Locked second brick cannot enter
+PASS Restaurant verification instantiates the same Level2 prefab without waiting for native video
+PASS Second brick creates exactly one Level2 and no Level1
+PASS New level instance starts outdoors regardless of saved indoor position
+PASS Second chapter starts outside the restaurant
+PASS One shared player and chef; guest only indoors
+PASS Original animated cook restored instead of banquet guest
+PASS Return button renders above level labels
+PASS Cannot enter from afar or use indoor props outside
+PASS Restaurant name is visible above exterior building
+PASS World labels show names without E prompts
+PASS Restaurant has a solid BoxCollider2D
+PASS No duplicate return-to-selection button
+PASS Near-building test is outside old invisible-anchor range
+PASS Same E interaction enters restaurant from accessible building edge
+PASS Door cannot switch repeatedly in same frame
+PASS Entering reuses player and chef and hides exterior
+PASS Current restaurant area is saved under second-chapter quest
+PASS Mobile direction press sets movement
+PASS Mobile direction release stops movement
+PASS Mobile interaction button exists
+PASS Cannot collect or clear before accepting quest
+PASS Puzzle remains locked before final delivery
+PASS Chef first dialogue offers task/science choices
+PASS Science branch ends without extra choices or accepting quest
+PASS Task branch accepts independent cooking quest
+PASS Collect utensil 0
+PASS Cannot collect duplicate utensil 0
+PASS Collect utensil 1
+PASS Cannot collect duplicate utensil 1
+PASS Collect utensil 2
+PASS Cannot collect duplicate utensil 2
+PASS All three utensils complete objective 1
+PASS Open puzzle blocks exit interaction
+PASS Restaurant exit returns outdoors and clears held movement
+PASS Interior props and collision bounds are inactive outdoors
+PASS Can enter restaurant again after leaving
+PASS Reentry preserves collection progress and same player
+PASS Continue/restoration restores saved indoor area and quest progress
+PASS Stove cleaning waits for chef briefing
+PASS Collected-stage chef dialogue unlocks cleaning
+PASS First debris cleared
+PASS Partial cleanup and collected items restore from save values
+PASS Three cleanups complete stove objective
+PASS Banquet waits for chef briefing
+PASS Matching opens and locks movement
+PASS Wrong match does not advance objective
+PASS Correct cup match accepted
+PASS Partial placement survives reopening/restoration
+PASS Matching panel blocks touch controls behind it
+PASS Place utensil 1
+PASS Place utensil 2
+PASS Placement finishes without premature puzzle reward
+PASS Chef grants missing fragment, not puzzle completion
+PASS Unsolved puzzle remains unsolved after restoring fragment reward
+PASS Solving paochu puzzle grants collection and unlocks third brick
+PASS Chef and guest remain in restaurant at completion
+PASS Continue removes Level2 and restores selection
+PASS Selection EventSystem remains usable
+PASS First chapter still instantiates original farming prefab
+PASS Back destroys current level and restores selection without loading Index
+PASS No runtime errors
